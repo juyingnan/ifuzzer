@@ -121,37 +121,45 @@ class fuzzer:
     def result_setting(self):
         self.result = logger.file_write("Result__" +time.strftime("%Y_%m_%d_%H_%M_%S", time.localtime(time.time())) + ".log")
 
-    def run(self, assertion):
+    def result_init(self):
+        time_start = time.asctime(time.localtime(time.time()))
+        self.result.write("TEST: %s;\n" % (self.http_address))
+        self.result.write("HEAD: %s;\n" % (self.headers))
+        self.result.write("BODY: %s;\n" % (self.body))
+        self.result.write("START TIME: %s;\n" % (time_start))
+
+    def result_finish(self, count_error, count_pass):
+        time_end = time.asctime(time.localtime(time.time()))
+        self.result.write("END TIME: %s;\n" % (time_end))
+        # self.result.write("DURING: %s;\n" %(time_end - time_start))
+        self.result.write("PASS: %d;\n" % (count_pass))
+        self.result.write("ERROR: %d;\n" % (count_error))
+        self.result.write("TOTAL: %d;\n" % (self.count))
+
+    def http_request_fuzz(self):
+        for param in self.headers_fuzz_params:
+            parser.fuzz_json_item(self.headers, param, self.headers_fuzz_params[param])
+        for param in self.body_fuzz_params:
+            parser.fuzz_json_item(self.body, param, self.body_fuzz_params[param])
+
+    def run(self, assertion, expected_result=400, message=""):
         if not self.check():
             return False
         else:
             self.body = parser.json_file_load(self.template_file_address)
             count_pass=0
             count_error=0
-            time_start = time.asctime( time.localtime(time.time()) )
-            self.result.write("TEST: %s;\n" %(self.http_address))
-            self.result.write("HEAD: %s;\n" %(self.headers))
-            self.result.write("BODY: %s;\n" %(self.body))
-            self.result.write("START TIME: %s;\n" %(time_start))
+            self.result_init()
             for i in range(self.count):
-                for param in self.headers_fuzz_params:
-                    parser.fuzz_json_item(self.headers, param, self.headers_fuzz_params[param])
-                for param in self.body_fuzz_params:
-                    parser.fuzz_json_item(self.body, param, self.body_fuzz_params[param])
-                # print self.headers
+                self.http_request_fuzz()# print self.headers
                 # print self.body
                 logging.debug(self.headers.__str__() + "|" + self.body.__str__())
                 self.respond = networker.send_request(self.http_address, self.method, self.headers, self.body)
                 logging.info(i.__str__() + ":" + self.respond.__str__())
-                if assertion(400, self.respond["code"], "/v3/services "):
+                if assertion(expected_result, self.respond["code"], message):
                     count_pass += 1
                 else:
                     count_error += 1
                     logging.warning(i + ":" + self.headers.__str__() + "|" + self.body.__str__() + "|" + self.respond.__str__())
                     self.result.write(i + ":" + self.headers.__str__() + "|" + self.body.__str__() + "|" + self.respond.__str__() + "\n")
-            time_end = time.asctime( time.localtime(time.time()) )
-            self.result.write("END TIME: %s;\n" %(time_end))
-            # self.result.write("DURING: %s;\n" %(time_end - time_start))
-            self.result.write("PASS: %d;\n" %(count_pass))
-            self.result.write("ERROR: %d;\n" %(count_error))
-            self.result.write("TOTAL: %d;\n" %(self.count))
+            self.result_finish(count_error, count_pass)
