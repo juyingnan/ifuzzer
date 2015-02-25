@@ -1,8 +1,7 @@
 __author__ = 'bunny_gg'
-from pywebfuzz import utils
-import json
 import logging
 import time
+
 from utils import parser
 from utils import networker
 from utils import logger
@@ -13,14 +12,31 @@ class fuzzer:
         self.template_file_address = template_file_address
         self.http_address = http_address
         self.count = count
+        self.method = method.upper()
         self.headers = {}
         self.body = {}
+        self.body_json_string = ""
         self.headers_fuzz_params = {}
         self.body_fuzz_params = {}
         self.headers_shuffle_params = False
         self.body_shuffle_params = []
+        self.respond = {}
+        self.logging_setting()
+        self.result_setting()
+
+    def __init__(self, http_address, method="GET", count=1000):
+        self.template_file_address = ""
+        self.http_address = http_address
+        self.count = count
         self.method = method.upper()
-        self.respond={}
+        self.headers = {}
+        self.body = {}
+        self.body_json_string = ""
+        self.headers_fuzz_params = {}
+        self.body_fuzz_params = {}
+        self.headers_shuffle_params = False
+        self.body_shuffle_params = []
+        self.respond = {}
         self.logging_setting()
         self.result_setting()
 
@@ -51,7 +67,7 @@ class fuzzer:
                 print "headers_params_format_other error"
                 return False
             # if isinstance(item.value[6], int):
-            #     print "headers_params_format_posit error"
+            # print "headers_params_format_posit error"
             #     return False
             if self.headers_fuzz_params[item][0] > self.headers_fuzz_params[item][1]:
                 print "headers_params_format min>max error"
@@ -60,7 +76,7 @@ class fuzzer:
 
     def body_params_check(self):
         for item in self.body_fuzz_params:
-            #if not self.body.has_key(item.key):
+            # if not self.body.has_key(item.key):
             #    print "body_params_key error"
             #    return False
 
@@ -113,13 +129,14 @@ class fuzzer:
 
     def logging_setting(self):
         logging.basicConfig(level=logging.DEBUG,
-                format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
-                datefmt='%a, %d %b %Y %H:%M:%S',
-                filename="Log__" + time.strftime("%Y_%m_%d_%H_%M_%S", time.localtime(time.time())) + ".log",
-                filemode='w')
+                            format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+                            datefmt='%a, %d %b %Y %H:%M:%S',
+                            filename="Log__" + time.strftime("%Y_%m_%d_%H_%M_%S", time.localtime(time.time())) + ".log",
+                            filemode='w')
 
     def result_setting(self):
-        self.result = logger.file_write("Result__" +time.strftime("%Y_%m_%d_%H_%M_%S", time.localtime(time.time())) + ".log")
+        self.result = logger.file_write(
+            "Result__" + time.strftime("%Y_%m_%d_%H_%M_%S", time.localtime(time.time())) + ".log")
 
     def result_init(self):
         time_start = time.asctime(time.localtime(time.time()))
@@ -146,12 +163,15 @@ class fuzzer:
         if not self.check():
             return False
         else:
-            self.body = parser.json_file_load(self.template_file_address)
-            count_pass=0
-            count_error=0
+            if self.template_file_address == "":
+                self.body = parser.json_string_load(self.body_json_string)
+            else:
+                self.body = parser.json_file_load(self.template_file_address)
+            count_pass = 0
+            count_error = 0
             self.result_init()
             for i in range(self.count):
-                self.http_request_fuzz()# print self.headers
+                self.http_request_fuzz()  # print self.headers
                 # print self.body
                 logging.debug(self.headers.__str__() + "|" + self.body.__str__())
                 self.respond = networker.send_request(self.http_address, self.method, self.headers, self.body)
@@ -160,6 +180,8 @@ class fuzzer:
                     count_pass += 1
                 else:
                     count_error += 1
-                    logging.warning(i + ":" + self.headers.__str__() + "|" + self.body.__str__() + "|" + self.respond.__str__())
-                    self.result.write(i + ":" + self.headers.__str__() + "|" + self.body.__str__() + "|" + self.respond.__str__() + "\n")
+                    logging.warning(
+                        i + ":" + self.headers.__str__() + "|" + self.body.__str__() + "|" + self.respond.__str__())
+                    self.result.write(
+                        i + ":" + self.headers.__str__() + "|" + self.body.__str__() + "|" + self.respond.__str__() + "\n")
             self.result_finish(count_error, count_pass)

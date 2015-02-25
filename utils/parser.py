@@ -30,6 +30,8 @@ def json_file_load(file_address):
     return json.load(file(file_address))
 
 
+def json_string_load(json_string):
+    return json.loads(json_string)
 # json_object = json.load(file('test.json'))
 # print json_object
 # fuzz_json_item(json_object, "password",[8,20,True,True,True,True])
