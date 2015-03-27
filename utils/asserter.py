@@ -59,3 +59,39 @@ def assert_false(actual_result, message=""):
 
 def fail():
     return False
+
+
+def assert_range(expect_result_min, expect_result_max, actual_result, message="", min_equal=True, max_equal=True):
+    if min_equal == True:
+        if actual_result < expect_result_min:
+            print message + "| assert_range failed."
+            return False
+    else:
+        if actual_result <= expect_result_min:
+            print message + "| assert_range failed."
+            return False
+    if max_equal == True:
+        if actual_result > expect_result_max:
+            print message + "| assert_range failed."
+            return False
+    else:
+        if actual_result >= expect_result_max:
+            print message + "| assert_range failed."
+            return False
+    return True
+
+
+def assert_not_range(expect_result_min, expect_result_max, actual_result, message="", min_equal=True, max_equal=True):
+    if min_equal == True:
+        if actual_result < expect_result_min:
+            return True
+    else:
+        if actual_result <= expect_result_min:
+            return True
+    if max_equal == True:
+        if actual_result > expect_result_max:
+            return True
+    else:
+        if actual_result >= expect_result_max:
+            return True
+    print False

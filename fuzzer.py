@@ -174,14 +174,38 @@ class fuzzer:
                 self.http_request_fuzz()  # print self.headers
                 # print self.body
                 logging.debug(self.headers.__str__() + "|" + self.body.__str__())
-                self.respond = networker.send_request(self.http_address, self.method, self.headers, self.body)
+                self.respond = networker.send_request(self.http_address, self.method, self.headers, self.body_json_string)
                 logging.info(i.__str__() + ":" + self.respond.__str__())
                 if assertion(expected_result, self.respond["code"], message):
                     count_pass += 1
                 else:
                     count_error += 1
                     logging.warning(
-                        i + ":" + self.headers.__str__() + "|" + self.body.__str__() + "|" + self.respond.__str__())
+                        i.__str__() + ":" + self.headers.__str__() + "|" + self.body.__str__() + "|" + self.respond.__str__())
                     self.result.write(
-                        i + ":" + self.headers.__str__() + "|" + self.body.__str__() + "|" + self.respond.__str__() + "\n")
+                        i.__str__() + ":" + self.headers.__str__() + "|" + self.body.__str__() + "|" + self.respond.__str__() + "\n")
+            self.result_finish(count_error, count_pass)
+
+    def run_file(self, assertion, expected_result=400, message=""):
+        if not self.check():
+            return False
+        else:
+            self.body = parser.json_file_load(self.template_file_address)
+            count_pass = 0
+            count_error = 0
+            self.result_init()
+            for i in range(self.count):
+                self.http_request_fuzz()  # print self.headers
+                # print self.body
+                logging.debug(self.headers.__str__() + "|" + self.body.__str__())
+                self.respond = networker.send_request(self.http_address, self.template_file_address, self.method, self.headers)
+                logging.info(i.__str__() + ":" + self.respond.__str__())
+                if assertion(expected_result, self.respond["code"], message):
+                    count_pass += 1
+                else:
+                    count_error += 1
+                    logging.warning(
+                        i.__str__() + ":" + self.headers.__str__() + "|" + self.body.__str__() + "|" + self.respond.__str__())
+                    self.result.write(
+                        i.__str__() + ":" + self.headers.__str__() + "|" + self.body.__str__() + "|" + self.respond.__str__() + "\n")
             self.result_finish(count_error, count_pass)

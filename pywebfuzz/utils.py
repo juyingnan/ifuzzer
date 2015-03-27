@@ -24,6 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
 import urllib
 import urllib2
 import datetime
+import os
 
 def make_request(location, method="GET", postdata=None, headers=None):
     """ This provides a convenience function for making requests. This interfaces
@@ -63,6 +64,51 @@ def make_request(location, method="GET", postdata=None, headers=None):
         # Compute timedelta from a successful request
         time = end - start
         return(headers, content, code, time)
+
+
+def make_file_request(location, method="PUT", post_file_address=None, headers=None):
+    """ This provides a convenience function for making requests. This interfaces
+    with urllib2 and provides the ability to make GET, POST, PUT and DELETE requests.
+    The return data from this function is headers, content, http status, and
+    the timedelta from a succesful request"""
+
+    # Checks to ensure that header values and postdata are in the appropriate format
+    if type(headers) != dict and headers != None:
+        raise TypeError, ("headers are not a valid Python dictionary")
+    if type(post_file_address) != str and post_file_address != None:
+        raise TypeError, ("post_file_address is not a valid Python string")
+
+    if headers:
+        req = urllib2.Request(location, method, headers=headers)
+    else:
+        req = urllib2.Request(location, method)
+
+    req.get_method = lambda: method.upper()
+    file_length = os.path.getsize(post_file_address)
+    req.add_data(open(post_file_address, "rb"))
+    req.add_header('Cache-Control', 'no-cache')
+    req.add_header('Content-Length', '%d' % file_length)
+    req.add_header('Content-Type', 'application/octet-stream')
+
+    # Anticipate errors from either unavailable contentt or nonexistent resources
+    try:
+        start = datetime.datetime.now()
+        response = urllib2.urlopen(req)
+        end = datetime.datetime.now()
+    except urllib2.HTTPError, error:
+        return(error.headers, error.msg, error.code, None)
+    except urllib2.URLError, error:
+        # Noneexistent resources won't have headers or status codes
+        return(None, error.reason, None, None)
+    else:
+        headers = response.info()
+        content = response.read()
+        # Grab the HTTP Status Code
+        code = response.getcode()
+        # Compute timedelta from a successful request
+        time = end - start
+        return(headers, content, code, time)
+
     
 def generate_range(start, stop, step=1, pre=None, post=None):
     """ Generate a range of values with optional stepping. Chars can be prepended or attached to
