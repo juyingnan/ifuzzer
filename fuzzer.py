@@ -8,24 +8,8 @@ from utils import logger
 
 
 class fuzzer:
-    def __init__(self, template_file_address, http_address, method="GET", count=1000):
+    def __init__(self, http_address, method="GET", count=1000, template_file_address=""):
         self.template_file_address = template_file_address
-        self.http_address = http_address
-        self.count = count
-        self.method = method.upper()
-        self.headers = {}
-        self.body = {}
-        self.body_json_string = ""
-        self.headers_fuzz_params = {}
-        self.body_fuzz_params = {}
-        self.headers_shuffle_params = False
-        self.body_shuffle_params = []
-        self.respond = {}
-        self.logging_setting()
-        self.result_setting()
-
-    def __init__(self, http_address, method="GET", count=1000):
-        self.template_file_address = ""
         self.http_address = http_address
         self.count = count
         self.method = method.upper()
@@ -171,9 +155,10 @@ class fuzzer:
             count_error = 0
             self.result_init()
             for i in range(self.count):
-                self.http_request_fuzz()  # print self.headers
-                # print self.body
-                logging.debug(self.headers.__str__() + "|" + self.body.__str__())
+                self.http_request_fuzz()
+                self.body_json_string = parser.json_to_string(self.body)
+                # print self.body_json_string
+                logging.debug(self.headers.__str__() + " | " + self.body_json_string)
                 self.respond = networker.send_request(self.http_address, self.method, self.headers, self.body_json_string)
                 logging.info(i.__str__() + ":" + self.respond.__str__())
                 if assertion(expected_result, self.respond["code"], message):
@@ -181,16 +166,16 @@ class fuzzer:
                 else:
                     count_error += 1
                     logging.warning(
-                        i.__str__() + ":" + self.headers.__str__() + "|" + self.body.__str__() + "|" + self.respond.__str__())
+                        i.__str__() + ":" + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__())
                     self.result.write(
-                        i.__str__() + ":" + self.headers.__str__() + "|" + self.body.__str__() + "|" + self.respond.__str__() + "\n")
+                        i.__str__() + ":" + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__() + "\n")
             self.result_finish(count_error, count_pass)
 
     def run_file(self, assertion, expected_result=400, message=""):
         if not self.check():
             return False
         else:
-            self.body = parser.json_file_load(self.template_file_address)
+            self.body = parser.get_file_content(self.template_file_address)
             count_pass = 0
             count_error = 0
             self.result_init()
@@ -198,14 +183,14 @@ class fuzzer:
                 self.http_request_fuzz()  # print self.headers
                 # print self.body
                 logging.debug(self.headers.__str__() + "|" + self.body.__str__())
-                self.respond = networker.send_request(self.http_address, self.template_file_address, self.method, self.headers)
+                self.respond = networker.send_file_request(self.http_address, self.template_file_address, self.method, self.headers)
                 logging.info(i.__str__() + ":" + self.respond.__str__())
                 if assertion(expected_result, self.respond["code"], message):
                     count_pass += 1
                 else:
                     count_error += 1
                     logging.warning(
-                        i.__str__() + ":" + self.headers.__str__() + "|" + self.body.__str__() + "|" + self.respond.__str__())
+                        i.__str__() + ":" + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__())
                     self.result.write(
-                        i.__str__() + ":" + self.headers.__str__() + "|" + self.body.__str__() + "|" + self.respond.__str__() + "\n")
+                        i.__str__() + ":" + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__() + "\n")
             self.result_finish(count_error, count_pass)

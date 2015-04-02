@@ -1,8 +1,8 @@
 __author__ = 'bunny_gg'
-import fuzzer
-from utils import asserter
 import sys
 sys.path.append("..")
+import fuzzer
+from utils import asserter
 
 file_address='test.json'
 http_address='http://openstackubuntu.chinacloudapp.cn:5000/v3/auth/tokens'

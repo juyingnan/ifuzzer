@@ -1,4 +1,6 @@
 __author__ = 'bunny_gg'
+import sys
+sys.path.append("..")
 from pywebfuzz import utils
 
 

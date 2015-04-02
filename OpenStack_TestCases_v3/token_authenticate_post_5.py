@@ -1,4 +1,6 @@
 __author__ = 'bunny_gg'
+import sys
+sys.path.append("..")
 import fuzzer
 from utils import asserter
 

@@ -1,0 +1,15 @@
+{
+"auth": {
+"identity": {
+"methods": [
+"password"
+],
+"password": {
+"user": {
+"id": "2a91bed69b3f43ea8e88be313d519428",
+"password": "secrete"
+}
+}
+}
+}
+}

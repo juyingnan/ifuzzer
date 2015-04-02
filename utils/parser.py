@@ -32,11 +32,50 @@ def json_file_load(file_address):
 
 def json_string_load(json_string):
     return json.loads(json_string)
+
+
+def json_to_string(json_object):
+    return json.dumps(json_object)
+
+
+def get_file_content(file_address):
+    file_object=open(file_address, mode='r', buffering=-1)
+    return file_object.read()
+
+
+ff = get_file_content("test.json")
+print ff
+
 # json_object = json.load(file('test.json'))
 # print json_object
+# json_string = json.dumps(json_object)
+# print json_string
+
 # fuzz_json_item(json_object, "password",[8,20,True,True,True,True])
 # print json_object
 # fuzz_json_item(json_object, "id",[8,8,True,True,True,True])
 # print json_object
 # shuffle_json_list(json_object, "user")
 # print json_object
+
+# body_json_string='''
+# {
+# "auth": {
+# "identity": {
+# "methods": [
+# "password"
+# ],
+# "password": {
+# "user": {
+# "id": "2a91bed69b3f43ea8e88be313d519421",
+# "password": "secrete"
+# }
+# }
+# }
+# }
+# }
+# '''
+# json_object = json_string_load(body_json_string)
+# print json_object
+# json_string = json_to_string(json_object)
+# print json_string
