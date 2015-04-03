@@ -5,7 +5,7 @@ import fuzzer
 from utils import asserter
 from utils import randomer
 
-file_address='../OpenStack_TestCases_v3/token_authenticate_post_1.py'
+file_address='../OpenStack_TestCases_v3/test.img'
 randomer.generate_random_file(file_address, 0, 32)
 # image_id = "e7db3b45-8db7-47ad-8109-3fb55c2c24f1"
 # http_address='http://openstackubuntu.chinacloudapp.cn:9292/v2/images/%s/file' % image_id
