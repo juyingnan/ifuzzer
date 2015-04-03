@@ -26,6 +26,11 @@ def shuffle_json_list(json_item, key):
         print("Error: input is not json object.")
 
 
+def fuzz_url_item(http_address, key, params):
+    random_string = randomer.random_string(params[0],params[1],params[2],params[3],params[4],params[5])
+    return http_address.replace(key, random_string)
+
+
 def json_file_load(file_address):
     return json.load(file(file_address))
 

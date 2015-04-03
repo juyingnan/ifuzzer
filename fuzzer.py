@@ -18,11 +18,45 @@ class fuzzer:
         self.body_json_string = ""
         self.headers_fuzz_params = {}
         self.body_fuzz_params = {}
+        self.url_fuzz_params = {}
         self.headers_shuffle_params = False
         self.body_shuffle_params = []
         self.respond = {}
         self.logging_setting()
         self.result_setting()
+
+
+    def url_params_check(self):
+        for item in self.url_fuzz_params:
+            if not item in self.http_address:
+                print "url_params_key error"
+                return False
+            if not isinstance(self.url_fuzz_params[item], list):
+                print "url_params_format_value error"
+                return False
+            if not isinstance(self.url_fuzz_params[item][0], int):
+                print "url_params_format_min error"
+                return False
+            if not isinstance(self.url_fuzz_params[item][1], int):
+                print "url_params_format_max error"
+                return False
+            if not isinstance(self.url_fuzz_params[item][2], bool):
+                print "url_params_format_upper error"
+                return False
+            if not isinstance(self.url_fuzz_params[item][3], bool):
+                print "url_params_format_lower error"
+                return False
+            if not isinstance(self.url_fuzz_params[item][4], bool):
+                print "url_params_format_digit error"
+                return False
+            if not isinstance(self.url_fuzz_params[item][5], bool):
+                print "url_params_format_other error"
+                return False
+            if self.url_fuzz_params[item][0] > self.url_fuzz_params[item][1]:
+                print "url_params_format min>max error"
+                return False
+        return True
+
 
     def headers_params_check(self):
         for item in self.headers_fuzz_params:
@@ -104,6 +138,8 @@ class fuzzer:
         if self.method != "GET" and self.method != "POST" and self.method != "DELETE" and self.method != "PUT" and self.method != "HEAD" and self.method != "DELETE":
             print "method error"
             return False
+        if not self.url_params_check():
+            return False
         if not self.headers_params_check():
             return False
         if not self.body_params_check():
@@ -138,6 +174,8 @@ class fuzzer:
         self.result.write("TOTAL: %d;\n" % (self.count))
 
     def http_request_fuzz(self):
+        for param in self.url_fuzz_params:
+            self.http_address = parser.fuzz_url_item(self.http_address, param, self.url_fuzz_params[param])
         for param in self.headers_fuzz_params:
             parser.fuzz_json_item(self.headers, param, self.headers_fuzz_params[param])
         for param in self.body_fuzz_params:
@@ -158,7 +196,7 @@ class fuzzer:
                 self.http_request_fuzz()
                 self.body_json_string = parser.json_to_string(self.body)
                 # print self.body_json_string
-                logging.debug(self.headers.__str__() + " | " + self.body_json_string)
+                logging.debug(self.http_address + " | " + self.headers.__str__() + " | " + self.body_json_string)
                 self.respond = networker.send_request(self.http_address, self.method, self.headers, self.body_json_string)
                 logging.info(i.__str__() + ":" + self.respond.__str__())
                 if assertion(expected_result, self.respond["code"], message):
@@ -166,9 +204,9 @@ class fuzzer:
                 else:
                     count_error += 1
                     logging.warning(
-                        i.__str__() + ":" + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__())
+                        i.__str__() + ":" + self.http_address + " | " + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__())
                     self.result.write(
-                        i.__str__() + ":" + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__() + "\n")
+                        i.__str__() + ":" + self.http_address + " | " + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__() + "\n")
             self.result_finish(count_error, count_pass)
 
     def run_file(self, assertion, expected_result=400, message=""):
