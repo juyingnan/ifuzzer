@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1a4f120f-bc35-4171-ab7b-399224883126" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/siwft_v1_TestCases/account_get_1.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/siwft_v1_TestCases/account_get_2.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/siwft_v1_TestCases/account_head_1.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/siwft_v1_TestCases/account_head_2.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/siwft_v1_TestCases/account_metadata_create_1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/asserter.py" afterPath="$PROJECT_DIR$/utils/asserter.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuzzer.py" afterPath="$PROJECT_DIR$/fuzzer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OpenStack_TestCases_v3/image_upload_binary_image_data_put_1.py" afterPath="$PROJECT_DIR$/OpenStack_TestCases_v3/image_upload_binary_image_data_put_1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/parser.py" afterPath="$PROJECT_DIR$/utils/parser.py" />
+    <list default="true" id="1a4f120f-bc35-4171-ab7b-399224883126" name="Default" comment="modify folder name">
+      <change type="DELETED" beforePath="C:\Users\bunny_gg\PycharmProjects\ifuzzer\OpenStack_TestCases_v3\image_upload_binary_image_data_put_1.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\bunny_gg\PycharmProjects\ifuzzer\OpenStack_TestCases_v3\test.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\bunny_gg\PycharmProjects\ifuzzer\OpenStack_TestCases_v3\token_authenticate_post_1.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\bunny_gg\PycharmProjects\ifuzzer\OpenStack_TestCases_v3\token_authenticate_post_2.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\bunny_gg\PycharmProjects\ifuzzer\OpenStack_TestCases_v3\token_authenticate_post_3.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\bunny_gg\PycharmProjects\ifuzzer\OpenStack_TestCases_v3\token_authenticate_post_4.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\bunny_gg\PycharmProjects\ifuzzer\OpenStack_TestCases_v3\token_authenticate_post_5.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\bunny_gg\PycharmProjects\ifuzzer\OpenStack_TestCases_v3\token_authenticate_post_6.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\bunny_gg\PycharmProjects\ifuzzer\OpenStack_TestCases_v3\token_authenticate_post_7.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\bunny_gg\PycharmProjects\ifuzzer\OpenStack_TestCases_v3\token_authenticate_post_8.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\bunny_gg\PycharmProjects\ifuzzer\siwft_v1_TestCases\account_get_1.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\bunny_gg\PycharmProjects\ifuzzer\siwft_v1_TestCases\account_get_2.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\bunny_gg\PycharmProjects\ifuzzer\siwft_v1_TestCases\account_head_1.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\bunny_gg\PycharmProjects\ifuzzer\siwft_v1_TestCases\account_head_2.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\bunny_gg\PycharmProjects\ifuzzer\siwft_v1_TestCases\account_metadata_create_1.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ifuzzer.iws" />
@@ -146,21 +152,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="siwft_v1_TestCases" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ifuzzer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ifuzzer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OpenStack_TestCases_v3" />
+              <option name="myItemId" value="swift_v1_TestCases" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -491,7 +483,13 @@
       <option name="project" value="LOCAL" />
       <updated>1428050954911</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="swift cases">
+      <created>1429382308773</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1429382308773</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -504,7 +502,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32922733" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32810047" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -539,7 +537,8 @@
     <MESSAGE value="token_authenticate_post cases" />
     <MESSAGE value="url_fuzz" />
     <MESSAGE value="bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixes" />
+    <MESSAGE value="swift cases" />
+    <option name="LAST_COMMIT_MESSAGE" value="swift cases" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -559,20 +558,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="607">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="39" max-vertical-offset="646">
-          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
-          <caret line="6" column="59" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -733,87 +718,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/Result__2015_04_18_22_19_08.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="377">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/account_get_2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38196287" vertical-offset="0" max-vertical-offset="377">
           <caret line="9" column="62" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/Log__2015_04_18_22_36_31.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="364">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/Log__2015_04_18_22_50_13.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="364">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/Result__2015_04_18_22_50_13.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="364">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/Result__2015_04_18_22_51_20.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="364">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/Result__2015_04_18_23_05_04.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1024">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/Log__2015_04_18_23_07_18.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2496">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/Result__2015_04_18_23_07_18.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1024">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/Result__2015_04_18_23_08_47.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1024">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/Result__2015_04_19_02_21_18.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="384">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/Result__2015_04_19_02_25_29.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5604396" vertical-offset="4" max-vertical-offset="512">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -831,20 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/Result__2015_04_19_02_27_00.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="377">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/Log__2015_04_19_02_27_00.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1696">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/account_get_1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="320">
@@ -859,38 +753,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/Result__2015_04_19_02_32_09.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="377">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/Log__2015_04_19_02_32_09.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="364">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/account_head_1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46684352" vertical-offset="0" max-vertical-offset="377">
           <caret line="11" column="64" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/Result__2015_04_19_02_34_01.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="377">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/siwft_v1_TestCases/Log__2015_04_19_02_34_01.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="384">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
