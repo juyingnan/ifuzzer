@@ -11,6 +11,7 @@ class fuzzer:
     def __init__(self, http_address, method="GET", count=1000, template_file_address=""):
         self.template_file_address = template_file_address
         self.http_address = http_address
+        self.original_http_address = http_address
         self.count = count
         self.method = method.upper()
         self.headers = {}
@@ -174,6 +175,7 @@ class fuzzer:
         self.result.write("TOTAL: %d;\n" % (self.count))
 
     def http_request_fuzz(self):
+        self.http_address = self.original_http_address
         for param in self.url_fuzz_params:
             self.http_address = parser.fuzz_url_item(self.http_address, param, self.url_fuzz_params[param])
         for param in self.headers_fuzz_params:
@@ -186,7 +188,8 @@ class fuzzer:
             return False
         else:
             if self.template_file_address == "":
-                self.body = parser.json_string_load(self.body_json_string)
+                if self.body_json_string != "":
+                    self.body = parser.json_string_load(self.body_json_string)
             else:
                 self.body = parser.json_file_load(self.template_file_address)
             count_pass = 0

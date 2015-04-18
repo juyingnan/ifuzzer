@@ -48,8 +48,8 @@ def get_file_content(file_address):
     return file_object.read()
 
 
-ff = get_file_content("test.json")
-print ff
+# ff = get_file_content("test.json")
+# print ff
 
 # json_object = json.load(file('test.json'))
 # print json_object

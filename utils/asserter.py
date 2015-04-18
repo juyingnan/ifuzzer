@@ -9,6 +9,14 @@ def assert_equal(expected_result, actual_result, message=""):
         return False
 
 
+def assert_not_equal(expected_result, actual_result, message=""):
+    if expected_result != actual_result:
+        return True
+    else:
+        print message + "| assert_not_equal failed."
+        return False
+
+
 def assert_less(expected_result, actual_result, message=""):
     if actual_result < expected_result:
         return True
@@ -59,6 +67,9 @@ def assert_false(actual_result, message=""):
 
 def fail():
     return False
+
+def succeed():
+    return True
 
 
 def assert_range(expect_result_min, expect_result_max, actual_result, message="", min_equal=True, max_equal=True):
