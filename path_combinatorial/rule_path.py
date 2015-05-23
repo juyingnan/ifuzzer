@@ -2,7 +2,7 @@ __author__ = 'bunny_gg'
 import itertools
 
 critera = "P"
-
+no_criteria = ["E", "F", "X"]
 
 def input_check(input):
     if not isinstance(input, list):
@@ -27,7 +27,6 @@ def rule_operation_path(input):
             return input
         else:
             return None
-
 
 def operation(input1, input2):
         if len(input2)>1:

@@ -28,4 +28,4 @@ def generate_random_file(file_address, min_length=0, max_length=32):
     f.close()
 
 
-# generate_random_file("test.img", 0, 6553600)
+generate_random_file("test.img", 0, 655300)

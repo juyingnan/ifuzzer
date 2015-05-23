@@ -2,16 +2,15 @@ __author__ = 'bunny_gg'
 
 import csv
 import node
-import parameter
 
 # seperator between parameters
 spt_between_parameters = "/"
 # seperator in parameter
-spt_in_parameter = "!"
+spt_in_parameter = ":"
 
 def csv_to_nodes(path, result=[]):
     reader = csv.DictReader(open(path))
-    # for name, interaction, isStart, isEnd, comment, fromNodes, toNodes, headers, body in reader:
+    # for name, interaction, isStart, isEnd, comment,  toNodes, headers, body in reader:
     for row in reader:
         n = node.node(name=row["name"],
                       interaction=row["interaction"],
@@ -19,7 +18,6 @@ def csv_to_nodes(path, result=[]):
                       isEnd=row["isEnd"]== str(True),
                       comment=row["comment"],
                       toNodes=row["toNodes"],
-                      fromNodes=row["fromNodes"],
                       headers=row["headers"],
                       body=row["body"])
         result.append(n)

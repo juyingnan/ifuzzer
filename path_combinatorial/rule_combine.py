@@ -7,8 +7,8 @@ def input_check(input):
     if not isinstance(input, list):
         print "input error, not list"
         return False
-    if len(input)<2:
-        print "input error, list length less than 2."
+    if len(input)<1:
+        print "input error, list length less than 1."
         return False
     for item in input:
         if item.interaction == None:
@@ -20,10 +20,16 @@ def rule_operation_combine(input):
     result = []
     if not input_check(input):
         return False
-    for i in range(2, len(input)+1, 1):
-        for combine in list(itertools.combinations(input,i)):
-            if operation(combine[0], combine[1:])==critera:
-                result.append(combine)
+    if len(input) == 1:
+        result.append(input)
+    else:
+        for i in range(2, len(input)+1, 1):
+            for combine in list(itertools.combinations(input,i)):
+                if operation(combine[0], combine[1:])==critera:
+                    for r in result[::-1]:
+                        if len(combine) > len(r):
+                            result.remove(r)
+                    result.append(combine)
     return result
 
 
@@ -57,26 +63,3 @@ def compare(input1, input2):
     i1 = ta_list.index(input1)
     i2 = ta_list.index(input2)
     return matrix2[i1][i2]
-
-
-class parameter:
-    def __init__(self, name, interaction="P",):
-        self.name = name
-        self.interaction = interaction
-    def __str__(self):
-        return self.name
-
-# p1 = parameter("P1","X")
-# p2 = parameter("P2","E")
-# p3 = parameter("P3","P")
-# p4 = parameter("P4","P")
-# p5 = parameter("P5","N")
-# p6 = parameter("P6","U")
-# p7 = parameter("P7","E")
-# p8 = parameter("P8","P")
-# ipt = [p1, p2, p3, p4, p5, p6, p7, p8]
-# rst = rule_operation(ipt)
-# for r in rst:
-#     for t in r:
-#         print t
-#     print "-----"
