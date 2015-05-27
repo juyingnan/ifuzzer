@@ -36,7 +36,8 @@ runner_1.body_fuzz_params["name"]=[1,128,True,True,True,True]
 
 # Step 2: Glance - Upload binary image data
 http_address_glance_upload_image = server_address + ":9292/v2/images/{image_id}/file"
-image_file_address = '../PCT_TestCases/test.img'
+# image_file_address = '../PCT_TestCases/test.img'
+image_file_address = 'test.img'
 runner_2 = fuzzer.fuzzer(http_address_glance_upload_image, "PUT", 1, image_file_address)
 runner_2.headers["X-Auth-Token"]= token
 runner_2.set_random_parameters(is_random=True, upper_limit=6550, lower_limit=0)

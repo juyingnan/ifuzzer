@@ -15,6 +15,8 @@ def random_string(min_length=0, max_length=32, have_upper=True, have_lower=True,
         string_pool += string.digits
     if have_other:
         string_pool += string.printable + string.punctuation
+        string_pool.replace("\"", "0")
+        string_pool.replace("\'", "1")
     return ''.join(random.SystemRandom().choice(string_pool) for _ in range(length))
 
 
