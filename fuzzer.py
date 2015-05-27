@@ -259,8 +259,8 @@ class fuzzer:
                         count_error += 1
                         logging.warning(
                             self.current_count.__str__() + ":" + self.method + " | " + self.http_address + " | " + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__())
-                        self.result.write(
-                            self.current_count.__str__() + ":" + self.method + " | " + self.http_address + " | " + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__() + "\n")
+                        # self.result.write(
+                        #     self.current_count.__str__() + ":" + self.method + " | " + self.http_address + " | " + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__() + "\n")
             finally:
                 self.result_finish(count_error, count_pass)
 

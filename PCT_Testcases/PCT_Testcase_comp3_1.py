@@ -8,6 +8,9 @@ from utils import asserter
 
 server_address = "http://openstack-ace.cloudapp.net"
 count = 10
+if sys.argv.__len__() > 0:
+    if isinstance(sys.argv[0], int):
+        count = sys.argv[0]
 
 # Step 0: Keystone generating token
 # Step 1: Glance - Create Image
@@ -29,7 +32,7 @@ runner_1.body_json_string='''
 }
 '''
 #runner_1.body_fuzz_params["id"]=[32,32,False,False,True,False]
-runner_1.body_fuzz_params["name"]=[1,128,True,True,True,False]
+runner_1.body_fuzz_params["name"]=[1,128,True,True,True,True]
 
 # Step 2: Glance - Upload binary image data
 http_address_glance_upload_image = server_address + ":9292/v2/images/{image_id}/file"
@@ -61,7 +64,7 @@ body_string_create_server = '''
 }
 '''
 runner_4.body_json_string=body_string_create_server
-runner_4.body_fuzz_params["name"]=[1,128,True,True,True,False]
+runner_4.body_fuzz_params["name"]=[1,128,True,True,True,True]
 
 # Step 5: Nova - Delete Server
 http_address_nova_delete_server = server_address + ":8774/v2.1/{tenant_id}/servers/{server_id}"
