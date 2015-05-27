@@ -25,31 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="fuzzer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuzzer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="108" column="65" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PCT_Testcase_comp3_1.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PCT_Testcases/PCT_Testcase_comp3_1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6840855">
-              <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="randomer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/randomer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+            <state vertical-scroll-proportion="1.2921615">
+              <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -607,7 +587,13 @@
       <option name="project" value="LOCAL" />
       <updated>1432734274591</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="randomer string_pool - &quot;/'">
+      <created>1432736706796</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1432736706796</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -658,7 +644,8 @@
     <MESSAGE value="PCT case 1 updated" />
     <MESSAGE value="HA" />
     <MESSAGE value="argv count" />
-    <option name="LAST_COMMIT_MESSAGE" value="argv count" />
+    <MESSAGE value="randomer string_pool - &quot;/'" />
+    <option name="LAST_COMMIT_MESSAGE" value="randomer string_pool - &quot;/'" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -672,7 +659,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="79" />
+      <option name="time" value="83" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -949,7 +936,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PCT_Testcases/Log__2015_05_27_21_35_26.log">
+    <entry file="file://$PROJECT_DIR$/PCT_Testcases/Log__2015_05_27_22_26_55.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.192399">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PCT_Testcases/Log__2015_05_27_22_35_44.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.456057">
+          <caret line="33" column="356" selection-start-line="33" selection-start-column="292" selection-end-line="33" selection-end-column="356" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PCT_Testcases/Log__2015_05_27_22_44_35.log">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -957,26 +960,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PCT_Testcases/Log__2015_05_27_21_36_23.log">
+    <entry file="file://$PROJECT_DIR$/PCT_Testcases/Log__2015_05_27_23_04_09.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.821853">
-          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="313" selection-start-line="33" selection-start-column="312" selection-end-line="33" selection-end-column="313" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PCT_Testcases/Log__2015_05_27_23_05_15.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="278" selection-start-line="24" selection-start-column="278" selection-end-line="24" selection-end-column="715" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/randomer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.23990498">
+          <caret line="17" column="78" selection-start-line="17" selection-start-column="78" selection-end-line="17" selection-end-column="78" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PCT_Testcases/PCT_Testcase_comp3_1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6840855">
-          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+        <state vertical-scroll-proportion="1.2921615">
+          <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
           <folding />
         </state>
       </provider>
