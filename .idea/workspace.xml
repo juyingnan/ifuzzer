@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a4f120f-bc35-4171-ab7b-399224883126" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/path_combinatorial/long.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/path_combinatorial/new.py" />
-      <change type="DELETED" beforePath="C:\Users\bunny_gg\PycharmProjects\ifuzzer\path_combinatorial\parameter.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/path_combinatorial/cvs_reader.py" afterPath="$PROJECT_DIR$/path_combinatorial/cvs_reader.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PCT_Testcases/PCT_Testcase_comp3_1.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuzzer.py" afterPath="$PROJECT_DIR$/fuzzer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/keystone_v3_cases/image_upload_binary_image_data_put_1.py" afterPath="$PROJECT_DIR$/keystone_v3_cases/image_upload_binary_image_data_put_1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/path_combinatorial/node.py" afterPath="$PROJECT_DIR$/path_combinatorial/node.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/path_combinatorial/old.py" afterPath="$PROJECT_DIR$/path_combinatorial/old.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/randomer.py" afterPath="$PROJECT_DIR$/utils/randomer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/path_combinatorial/rule_combine.py" afterPath="$PROJECT_DIR$/path_combinatorial/rule_combine.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/path_combinatorial/rule_path.py" afterPath="$PROJECT_DIR$/path_combinatorial/rule_path.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/path_combinatorial/sample.csv" afterPath="$PROJECT_DIR$/path_combinatorial/sample.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/keystone_v3_cases/token_authenticate_post_1.py" afterPath="$PROJECT_DIR$/keystone_v3_cases/token_authenticate_post_1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/path_combinatorial/long.csv" afterPath="$PROJECT_DIR$/path_combinatorial/long.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/networker.py" afterPath="$PROJECT_DIR$/utils/networker.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pywebfuzz/utils.py" afterPath="$PROJECT_DIR$/pywebfuzz/utils.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ifuzzer.iws" />
@@ -35,7 +27,48 @@
     <favorites_list name="ifuzzer" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="fuzzer.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fuzzer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8017429">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="33" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Log__2015_05_27_20_34_05.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PCT_Testcases/Log__2015_05_27_20_34_05.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="networker.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/networker.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PCT_Testcase_comp3_1.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PCT_Testcases/PCT_Testcase_comp3_1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -60,10 +93,8 @@
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/test.json" />
         <option value="$PROJECT_DIR$/test2.py" />
-        <option value="$PROJECT_DIR$/pywebfuzz/utils.py" />
         <option value="$PROJECT_DIR$/OpenStack_TestCases_v3/Log__2015_03_27_22_46_45.log" />
         <option value="$PROJECT_DIR$/utils/test_parser.py" />
-        <option value="$PROJECT_DIR$/utils/networker.py" />
         <option value="$PROJECT_DIR$/OpenStack_TestCases_v3/token_authenticate_post_3.py" />
         <option value="$PROJECT_DIR$/OpenStack_TestCases_v3/token_authenticate_post_4.py" />
         <option value="$PROJECT_DIR$/OpenStack_TestCases_v3/token_authenticate_post_5.py" />
@@ -90,9 +121,6 @@
         <option value="$PROJECT_DIR$/path_combinatorial/combine.py" />
         <option value="$PROJECT_DIR$/path_combinatorial/rule_path.py" />
         <option value="$PROJECT_DIR$/utils/randomer.py" />
-        <option value="$PROJECT_DIR$/keystone_v3_cases/image_upload_binary_image_data_put_1.py" />
-        <option value="$PROJECT_DIR$/keystone_v3_cases/token_authenticate_post_1.py" />
-        <option value="$PROJECT_DIR$/fuzzer.py" />
         <option value="$PROJECT_DIR$/path_combinatorial/allpath.txt" />
         <option value="$PROJECT_DIR$/path_combinatorial/parameter.py" />
         <option value="$PROJECT_DIR$/path_combinatorial/long.csv" />
@@ -102,6 +130,12 @@
         <option value="$PROJECT_DIR$/path_combinatorial/new.py" />
         <option value="$PROJECT_DIR$/path_combinatorial/old.py" />
         <option value="$PROJECT_DIR$/path_combinatorial/rule_combine.py" />
+        <option value="$PROJECT_DIR$/keystone_v3_cases/image_upload_binary_image_data_put_1.py" />
+        <option value="$PROJECT_DIR$/keystone_v3_cases/token_authenticate_post_1.py" />
+        <option value="$PROJECT_DIR$/pywebfuzz/utils.py" />
+        <option value="$PROJECT_DIR$/utils/networker.py" />
+        <option value="$PROJECT_DIR$/PCT_Testcases/PCT_Testcase_comp3_1.py" />
+        <option value="$PROJECT_DIR$/fuzzer.py" />
       </list>
     </option>
   </component>
@@ -153,7 +187,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -204,7 +237,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="path_combinatorial" />
+              <option name="myItemId" value="keystone_v3_cases" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -218,12 +251,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="keystone_v3_cases" />
+              <option name="myItemId" value="PCT_Testcases" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -255,7 +289,7 @@
       <recent name="C:\Users\bunny_gg\PycharmProjects\ifuzzer\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.new">
+  <component name="RunManager" selected="Python.PCT_Testcase_comp3_1">
     <configuration default="false" name="old" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -294,23 +328,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="randomer" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="ifuzzer" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/randomer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="image_upload_binary_image_data_put_1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -341,6 +358,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="ifuzzer" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/keystone_v3_cases/token_authenticate_post_1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="PCT_Testcase_comp3_1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PCT_Testcases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="ifuzzer" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PCT_Testcases/PCT_Testcase_comp3_1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -470,17 +504,17 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.old" />
       <item index="1" class="java.lang.String" itemvalue="Python.new" />
-      <item index="2" class="java.lang.String" itemvalue="Python.randomer" />
-      <item index="3" class="java.lang.String" itemvalue="Python.image_upload_binary_image_data_put_1" />
-      <item index="4" class="java.lang.String" itemvalue="Python.token_authenticate_post_1" />
+      <item index="2" class="java.lang.String" itemvalue="Python.image_upload_binary_image_data_put_1" />
+      <item index="3" class="java.lang.String" itemvalue="Python.token_authenticate_post_1" />
+      <item index="4" class="java.lang.String" itemvalue="Python.PCT_Testcase_comp3_1" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.new" />
-        <item index="1" class="java.lang.String" itemvalue="Python.old" />
-        <item index="2" class="java.lang.String" itemvalue="Python.token_authenticate_post_1" />
-        <item index="3" class="java.lang.String" itemvalue="Python.image_upload_binary_image_data_put_1" />
-        <item index="4" class="java.lang.String" itemvalue="Python.randomer" />
+        <item index="0" class="java.lang.String" itemvalue="Python.PCT_Testcase_comp3_1" />
+        <item index="1" class="java.lang.String" itemvalue="Python.new" />
+        <item index="2" class="java.lang.String" itemvalue="Python.old" />
+        <item index="3" class="java.lang.String" itemvalue="Python.token_authenticate_post_1" />
+        <item index="4" class="java.lang.String" itemvalue="Python.image_upload_binary_image_data_put_1" />
       </list>
     </recent_temporary>
   </component>
@@ -561,21 +595,26 @@
       <option name="project" value="LOCAL" />
       <updated>1431399362239</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="path combinatorial done">
+      <created>1432378232116</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1432378232116</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21949404" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21949404" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32736155" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988507" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32810047" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.267101" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20846905" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988507" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -587,6 +626,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32736155" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -608,7 +648,8 @@
     <MESSAGE value="bug fixes" />
     <MESSAGE value="swift cases" />
     <MESSAGE value="path combinatorial" />
-    <option name="LAST_COMMIT_MESSAGE" value="path combinatorial" />
+    <MESSAGE value="path combinatorial done" />
+    <option name="LAST_COMMIT_MESSAGE" value="path combinatorial done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -622,69 +663,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="68" />
+      <option name="time" value="79" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/path_combinatorial/node.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path_combinatorial/node.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path_combinatorial/old.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path_combinatorial/cvs_reader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path_combinatorial/sample.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path_combinatorial/cvs_reader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path_combinatorial/old.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path_combinatorial/rule_combine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fuzzer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -737,34 +720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/asserter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="15" selection-start-line="71" selection-start-column="15" selection-end-line="71" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/networker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="39" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pywebfuzz/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/logger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12732096">
-          <caret line="3" column="14" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.59090906">
@@ -790,14 +745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44702843">
           <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/randomer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -843,23 +790,93 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/keystone_v3_cases/Log__2015_05_21_11_25_58.log">
+    <entry file="file://$PROJECT_DIR$/path_combinatorial/long.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="56" selection-start-line="0" selection-start-column="47" selection-end-line="0" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/path_combinatorial/sample.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30260047">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/path_combinatorial/allpath_new.log">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/path_combinatorial/all_path.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18439716">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/path_combinatorial/cvs_reader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12435233">
+          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/path_combinatorial/old.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.4799054">
+          <caret line="96" column="64" selection-start-line="96" selection-start-column="64" selection-end-line="96" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/path_combinatorial/node.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.7021277">
+          <caret line="73" column="20" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/path_combinatorial/rule_path.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6643026">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/path_combinatorial/rule_combine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.77304965">
+          <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/path_combinatorial/new.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4373523">
+          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/randomer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/keystone_v3_cases/Log__2015_05_21_11_27_35.log">
+    <entry file="file://$PROJECT_DIR$/utils/asserter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="1.9303944">
+          <caret line="71" column="15" selection-start-line="71" selection-start-column="15" selection-end-line="71" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/keystone_v3_cases/Result__2015_05_21_11_27_35.log">
+    <entry file="file://$PROJECT_DIR$/PCT_Testcases/test.img">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -869,31 +886,95 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/keystone_v3_cases/image_upload_binary_image_data_put_1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.93772894">
-          <caret line="16" column="81" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="81" />
+        <state vertical-scroll-proportion="0.3712297">
+          <caret line="10" column="72" selection-start-line="10" selection-start-column="72" selection-end-line="10" selection-end-column="72" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/keystone_v3_cases/token_authenticate_post_1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6996337">
-          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.7424594">
+          <caret line="26" column="3" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/keystone_v3_cases/Log__2015_05_21_11_30_06.log">
+    <entry file="file://C:/Python27/Lib/socket.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.08884688">
+        <state vertical-scroll-proportion="-18.555555">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/keystone_v3_cases/Log__2015_05_21_11_30_38.log">
+    <entry file="file://C:/Python27/Lib/urllib2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.08884688">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="130" column="39" selection-start-line="130" selection-start-column="39" selection-end-line="130" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pywebfuzz/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17429194">
+          <caret line="68" column="94" selection-start-line="68" selection-start-column="94" selection-end-line="68" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/logger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.104575165">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PCT_Testcases/PCT_Testcase_comp3_1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/networker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PCT_Testcases/Result__2015_05_27_20_34_05.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PCT_Testcases/Log__2015_05_27_20_34_05.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PCT_Testcases/Result__2015_05_27_20_34_06.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PCT_Testcases/Log__2015_05_27_20_50_53.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.4379086">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -901,92 +982,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fuzzer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="208" column="0" selection-start-line="208" selection-start-column="0" selection-end-line="210" selection-end-column="13" />
-          <folding>
-            <element signature="e#24#38#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path_combinatorial/long.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="56" selection-start-line="0" selection-start-column="47" selection-end-line="0" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path_combinatorial/sample.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30260047">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path_combinatorial/allpath_new.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path_combinatorial/all_path.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18439716">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path_combinatorial/cvs_reader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12435233">
-          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-          <folding>
-            <element signature="e#25#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path_combinatorial/old.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.4799054">
-          <caret line="96" column="64" selection-start-line="96" selection-start-column="64" selection-end-line="96" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path_combinatorial/node.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.7021277">
-          <caret line="73" column="20" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path_combinatorial/rule_path.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6643026">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path_combinatorial/rule_combine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77304965">
-          <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path_combinatorial/new.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4373523">
-          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.8017429">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="33" selection-end-column="26" />
           <folding />
         </state>
       </provider>

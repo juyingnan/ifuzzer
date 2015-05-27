@@ -8,7 +8,7 @@ from utils import logger
 from utils import randomer
 
 class fuzzer:
-    def __init__(self, http_address, method="GET", count=1000, template_file_address=""):
+    def __init__(self, http_address, method="GET", count=1000, template_file_address="", timeout=60):
         self.template_file_address = template_file_address
         self.http_address = http_address
         self.original_http_address = http_address
@@ -26,8 +26,12 @@ class fuzzer:
         self.respond = {}
         self.random_file_params = [0,0]
         self.isRandomFile = False
+        self.timeout = timeout
         self.logging_setting()
-        self.result_setting()
+        # self.result_setting()
+
+    # def __del__(self):
+    #     self.log_close()
 
 
     def url_params_check(self):
@@ -181,20 +185,40 @@ class fuzzer:
         self.result = logger.file_write(
             "Result__" + time.strftime("%Y_%m_%d_%H_%M_%S", time.localtime(time.time())) + ".log")
 
-    def result_init(self):
+    def log_close(self):
+        self.result.close()
+
+    # def result_init(self, body = True):
+    #     time_start = time.asctime(time.localtime(time.time()))
+    #     self.result.write("TEST: %s: %s;\n" % (self.method, self.http_address))
+    #     self.result.write("HEAD: %s;\n" % (self.headers))
+    #     if body:
+    #         self.result.write("BODY: %s;\n" % (self.body))
+    #     self.result.write("START TIME: %s;\n" % (time_start))
+    #
+    # def result_finish(self, count_error, count_pass):
+    #     time_end = time.asctime(time.localtime(time.time()))
+    #     self.result.write("END TIME: %s;\n" % (time_end))
+    #     # self.result.write("DURING: %s;\n" %(time_end - time_start))
+    #     self.result.write("PASS: %d;\n" % (count_pass))
+    #     self.result.write("ERROR: %d;\n" % (count_error))
+    #     self.result.write("TOTAL: %d;\n" % (self.count))
+
+    def result_init(self, body = True):
         time_start = time.asctime(time.localtime(time.time()))
-        self.result.write("TEST: %s;\n" % (self.http_address))
-        self.result.write("HEAD: %s;\n" % (self.headers))
-        self.result.write("BODY: %s;\n" % (self.body))
-        self.result.write("START TIME: %s;\n" % (time_start))
+        logging.info("TEST: %s: %s;" % (self.method, self.http_address))
+        logging.info("HEAD: %s;" % (self.headers))
+        if body:
+            logging.info("BODY: %s;" % (self.body))
+        logging.info("START TIME: %s;" % (time_start))
 
     def result_finish(self, count_error, count_pass):
         time_end = time.asctime(time.localtime(time.time()))
-        self.result.write("END TIME: %s;\n" % (time_end))
+        logging.info("END TIME: %s;" % (time_end))
         # self.result.write("DURING: %s;\n" %(time_end - time_start))
-        self.result.write("PASS: %d;\n" % (count_pass))
-        self.result.write("ERROR: %d;\n" % (count_error))
-        self.result.write("TOTAL: %d;\n" % (self.count))
+        logging.info("PASS: %d;" % (count_pass))
+        logging.info("ERROR: %d;" % (count_error))
+        logging.info("TOTAL: %d;" % (self.count))
 
     def http_request_fuzz(self):
         self.http_address = self.original_http_address
@@ -217,23 +241,25 @@ class fuzzer:
             count_pass = 0
             count_error = 0
             self.result_init()
-            for i in range(self.count):
-                self.http_request_fuzz()
-                self.body_json_string = parser.json_to_string(self.body)
-                # print self.body_json_string
-                logging.debug(self.http_address + " | " + self.headers.__str__() + " | " + self.body_json_string)
-                self.respond = networker.send_request(self.http_address, self.method, self.headers, self.body_json_string)
-                self.current_count += 1
-                logging.info(self.current_count.__str__() + ":" + self.respond.__str__())
-                if assertion(expected_result, self.respond["code"], message):
-                    count_pass += 1
-                else:
-                    count_error += 1
-                    logging.warning(
-                        self.current_count.__str__() + ":" + self.http_address + " | " + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__())
-                    self.result.write(
-                        self.current_count.__str__() + ":" + self.http_address + " | " + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__() + "\n")
-            self.result_finish(count_error, count_pass)
+            try:
+                for i in range(self.count):
+                    self.http_request_fuzz()
+                    self.body_json_string = parser.json_to_string(self.body)
+                    # print self.body_json_string
+                    logging.debug(self.method + " | " + self.http_address + " | " + self.headers.__str__() + " | " + self.body_json_string)
+                    self.respond = networker.send_request(self.http_address, self.method, self.headers, self.body_json_string, timeout=self.timeout)
+                    self.current_count += 1
+                    logging.info(self.current_count.__str__() + ":" + self.respond.__str__())
+                    if assertion(expected_result, self.respond["code"], message):
+                        count_pass += 1
+                    else:
+                        count_error += 1
+                        logging.warning(
+                            self.current_count.__str__() + ":" + self.method + " | " + self.http_address + " | " + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__())
+                        self.result.write(
+                            self.current_count.__str__() + ":" + self.method + " | " + self.http_address + " | " + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__() + "\n")
+            finally:
+                self.result_finish(count_error, count_pass)
 
     def set_random_parameters(self, is_random, upper_limit, lower_limit):
         self.isRandomFile = is_random
@@ -252,23 +278,26 @@ class fuzzer:
             self.body = parser.get_file_content(self.template_file_address)
             count_pass = 0
             count_error = 0
-            self.result_init()
-            for i in range(self.count):
-                self.http_request_fuzz()  # print self.headers
-                # print self.body
-                logging.debug(self.headers.__str__() + "|" + self.body.__str__())
-                self.respond = networker.send_file_request(self.http_address, self.template_file_address, self.method, self.headers)
-                self.current_count += 1
-                logging.info(self.current_count.__str__() + ":" + self.respond.__str__())
-                if assertion(expected_result, self.respond["code"], message):
-                    count_pass += 1
-                else:
-                    count_error += 1
-                    logging.warning(
-                        self.current_count.__str__() + ":" + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__())
-                    self.result.write(
-                        self.current_count.__str__() + ":" + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__() + "\n")
-            self.result_finish(count_error, count_pass)
+            self.result_init(body = False)
+            try:
+                for i in range(self.count):
+                    self.http_request_fuzz()  # print self.headers
+                    # print self.body
+                    # logging.debug(self.headers.__str__() + "|" + self.body.__str__())
+                    logging.debug(self.method + " | " + self.http_address + " | " + self.headers.__str__() + " | ")
+                    self.respond = networker.send_file_request(self.http_address, self.template_file_address, self.method, self.headers, timeout=self.timeout)
+                    self.current_count += 1
+                    logging.info(self.current_count.__str__() + ":" + self.respond.__str__())
+                    if assertion(expected_result, self.respond["code"], message):
+                        count_pass += 1
+                    else:
+                        count_error += 1
+                        logging.warning(
+                            self.current_count.__str__() + ":" + self.method + " | " + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__())
+                        self.result.write(
+                            self.current_count.__str__() + ":" + self.method + " | " + self.headers.__str__() + "|" + self.body_json_string + "|" + self.respond.__str__() + "\n")
+            finally:
+                self.result_finish(count_error, count_pass)
 
     def get_token(self, user_id, password, http_address=""):
         if http_address == "":

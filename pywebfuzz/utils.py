@@ -26,7 +26,7 @@ import urllib2
 import datetime
 import os
 
-def make_request(location, method="GET", postdata=None, headers=None):
+def make_request(location, method="GET", postdata=None, headers=None, timeout=60):
     """ This provides a convenience function for making requests. This interfaces
     with urllib2 and provides the ability to make GET, POST, PUT and DELETE requests.
     The return data from this function is headers, content, http status, and
@@ -49,7 +49,7 @@ def make_request(location, method="GET", postdata=None, headers=None):
     # Anticipate errors from either unavailable contentt or nonexistent resources
     try:
         start = datetime.datetime.now()
-        response = urllib2.urlopen(req)
+        response = urllib2.urlopen(req, timeout=timeout)
         end = datetime.datetime.now()
     except urllib2.HTTPError, error:
         return(error.headers, error.msg, error.code, None)
@@ -66,7 +66,7 @@ def make_request(location, method="GET", postdata=None, headers=None):
         return(headers, content, code, time)
 
 
-def make_file_request(location, method="PUT", post_file_address=None, headers=None):
+def make_file_request(location, method="PUT", post_file_address=None, headers=None, timeout=60):
     """ This provides a convenience function for making requests. This interfaces
     with urllib2 and provides the ability to make GET, POST, PUT and DELETE requests.
     The return data from this function is headers, content, http status, and
@@ -93,7 +93,7 @@ def make_file_request(location, method="PUT", post_file_address=None, headers=No
     # Anticipate errors from either unavailable contentt or nonexistent resources
     try:
         start = datetime.datetime.now()
-        response = urllib2.urlopen(req)
+        response = urllib2.urlopen(req, timeout=timeout)
         end = datetime.datetime.now()
     except urllib2.HTTPError, error:
         return(error.headers, error.msg, error.code, None)
