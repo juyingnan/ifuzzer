@@ -78,7 +78,7 @@ for i in range(0, count, 1):
     try:
         # step 1:create image
         runner_1.run(asserter.assert_equal, 201, i.__str__() + ": Step 1: Create Image")
-        if runner_1.respond["code"] == 201:
+        if runner_1.respond != "Error" and runner_1.respond["code"] == 201:
             # step 2: upload binary image data
             image_location = runner_1.respond["headers"]["location"]
             image_id = image_location.split("/")[-1]
@@ -91,7 +91,7 @@ for i in range(0, count, 1):
             runner_4.original_http_address = http_address_nova_create_server.replace("{tenant_id}", tenant_id)
             runner_4.body_json_string = body_string_create_server.replace("{image_id}", image_id)
             runner_4.run(asserter.assert_equal, 202, i.__str__() + ": Step 4: Create Server")
-            if runner_4.respond["code"] == 202:
+            if runner_4.respond != "Error" and runner_4.respond["code"] == 202:
                 # step 5
                 server_location = runner_4.respond["headers"]["location"]
                 server_id = server_location.split("/")[-1]

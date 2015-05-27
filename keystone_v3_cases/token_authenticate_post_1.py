@@ -6,7 +6,7 @@ from utils import asserter
 
 file_address='test.json'
 http_address='http://openstack-ace.cloudapp.net:5000/v3/auth/tokens'
-runner = fuzzer.fuzzer(http_address, 'POST', 5)
+runner = fuzzer.fuzzer(http_address, 'POST', 500)
 runner.headers["Content-Type"]="application/json"
 runner.body_json_string='''
 {
@@ -27,6 +27,5 @@ runner.body_json_string='''
 '''
 runner.body_fuzz_params["password"]=[1,32,True,True,True,True]
 runner.body_fuzz_params["id"]=[1,32,True,True,True,True]
-for i in range(3):
-    runner.run(asserter.assert_equal, 401, "/v3/auth/tokens ")
+runner.run(asserter.assert_equal, 401, "/v3/auth/tokens ")
 
