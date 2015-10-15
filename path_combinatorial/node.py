@@ -1,8 +1,8 @@
 __author__ = 'bunny_gg'
 
-# seperator between parameters
+# separator between parameters
 spt_between_parameters = "/"
-# seperator in parameter
+# separator in parameter
 spt_in_parameter = ":"
 
 class node:
