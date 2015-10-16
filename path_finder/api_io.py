@@ -5,13 +5,12 @@ spt_between_parameters = "_"
 
 
 class apiIO:
-    def __init__(self, name="", subject="", isOptional= False, string=""):
+    def __init__(self, name="", subject="", isOptional=False, string=""):
         self.name = name
         self.subject = subject
         self.isOptional = isOptional
         if string != "":
             self.GetContent(string)
-
 
     def GetContent(self, string):
         contentString = string.strip()
@@ -27,10 +26,19 @@ class apiIO:
             self.name = contentString
 
     def __str__(self):
-        return ("subject: " + self.subject + " || " if self.subject!="" else "") + "name: " + self.name + (" || " + "Optional" if self.isOptional else "")
+        return ("subject: " + self.subject + " || " if self.subject != "" else "") + "name: " + self.name + (
+        " || " + "Optional" if self.isOptional else "")
+
+    def __eq__(self, other):
+        if not isinstance(other, apiIO):
+            return False
+        if other.name == self.name and other.subject == self.subject:
+            return True
+        else:
+            return False
 
 
-# a = apiIO(string="project_user_id   (optional)    ")
-# print a
-# b = apiIO(string="password    ")
-# print b
+        # a = apiIO(string="project_user_id   (optional)    ")
+        # print a
+        # b = apiIO(string="password    ")
+        # print b

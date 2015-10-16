@@ -1,6 +1,5 @@
 __author__ = 'bunny_gg'
 
-
 import api_io
 
 # separator between parameters
@@ -8,8 +7,10 @@ spt_between_parameters = "/"
 # separator in parameter
 spt_in_parameter = "\n"
 
+
 class api:
-    def __init__(self, category, name, method, uri, input, response, normal_response_code, error_response_code, description):
+    def __init__(self, category, name, method, uri, input, response, normal_response_code, error_response_code,
+                 description):
         self.category = category
         self.name = name
         self.method = method
@@ -35,28 +36,28 @@ class api:
     def content_check(self):
         result = True
         if not isinstance(self.category, str):
-            #self.category = ""
+            # self.category = ""
             result = False
         if not isinstance(self.method, str):
-            #self.method = ""
+            # self.method = ""
             result = False
         if not isinstance(self.uri, str):
-            #self.uri = ""
+            # self.uri = ""
             result = False
         if not isinstance(self.input, list):
-            #self.input = []
+            # self.input = []
             result = False
         if not isinstance(self.response, list):
-            #self.response = []
+            # self.response = []
             result = False
         if not isinstance(self.normal_response_code, list):
-            #self.normal_response_code = []
+            # self.normal_response_code = []
             result = False
         if not isinstance(self.error_response_code, list):
-            #self.error_response_code = []
+            # self.error_response_code = []
             result = False
         if not isinstance(self.description, str):
-            #self.description = ""
+            # self.description = ""
             result = False
         return result
 
@@ -94,3 +95,11 @@ class api:
         string += str(self.isCompleted)
         string += "."
         return string
+
+    def __eq__(self, other):
+        if not isinstance(other, api):
+            return False
+        if other.name == self.name and other.category == self.category:
+            return True
+        else:
+            return False
