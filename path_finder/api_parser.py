@@ -14,6 +14,7 @@ spt_in_parameter = ":"
 
 def csv_to_APIs(path, result=[]):
     reader = csv.DictReader(open(path))
+    component = str(path).split(spt_between_parameters).pop().split(".")[0]
     category_temp = ""
     # for Category, Name, Method, URI, Input, Response, Normal_response_code, Error_Response_code, and Description:
     for row in reader:
@@ -27,7 +28,8 @@ def csv_to_APIs(path, result=[]):
                     response=row["Response"],
                     normal_response_code=row["Normal Response Code"],
                     error_response_code=row["Error Response Code"],
-                    description=row["Description"])
+                    description=row["Description"],
+                    component=component)
         if a.name != "" and a.method != "" and a.uri != "":
             result.append(a)
     return result

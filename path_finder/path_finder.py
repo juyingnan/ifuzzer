@@ -72,5 +72,4 @@ def get_all_leaves(root):
 
 
 result = find_path(["keystone.csv", "glance.csv", "nova.csv"], ["password"])
-for r in result:
-    print r
+print result

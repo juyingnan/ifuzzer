@@ -10,7 +10,7 @@ spt_in_parameter = "\n"
 
 class api:
     def __init__(self, category, name, method, uri, input, response, normal_response_code, error_response_code,
-                 description):
+                 description, component=""):
         self.category = category
         self.name = name
         self.method = method
@@ -20,6 +20,7 @@ class api:
         self.normal_response_code = self.get_string_list(normal_response_code, spt_between_parameters)
         self.error_response_code = self.get_string_list(error_response_code, spt_between_parameters)
         self.description = description
+        self.component = component
         self.isCompleted = self.content_check()
 
     def get_string_list(self, input_string, separator):
@@ -59,6 +60,9 @@ class api:
         if not isinstance(self.description, str):
             # self.description = ""
             result = False
+        if not isinstance(self.component, str):
+            # self.component = ""
+            result = False
         return result
 
     def __str__(self):
@@ -92,6 +96,8 @@ class api:
             string += item
             string += "/"
         string += "]; "
+        string += self.component
+        string += "; "
         string += str(self.isCompleted)
         string += "."
         return string
