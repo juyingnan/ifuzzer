@@ -1,0 +1,444 @@
+Category,Name,Method,URI,Input,Response,Normal Response Code,Error Response Code,Description,Remark,,POST
+Token,Authenticate,POST,/v3/auth/tokens,"user_id
+password",X-Auth-Token,201,400/401/403/405/413/503/404,Authenticates and generates a token.,,,Add user
+,Validate token,GET,/v3/auth/tokens,X-Subject-Token,user_id,200,400/401/403/405/413/503/404,Validates a specified token.,,,
+,Check token,HEAD,/v3/auth/tokens,X-Subject-Token,user_id,204,400/401/403/405/413/503/404,Validates a specified token.,,,Adds a user.
+,Revoke token,DELETE,/v3/auth/tokens,X-Subject-Token,,204,400/401/403/405/413/503/404,Revokes a specified token.,API document has no Normal Response Code. 204 is the actual result.,"INDEX(L:L, ROW(L1)*7-4,1)",
+Service catalog,Add service,POST,/v3/services,service_type,"service_id
+service_type",201,400/401/403/405/413/503/404,Adds a service.,,,
+,List services,GET,"/v3/services{?type,page,per_page}",,"service_description
+service_id
+service_type
+service_name
+service_link",200,400/401/403/405/413/503/404,Lists services.,,,GET
+,Show service details,GET,/v3/services/{service_id},service_id,"service_description
+service_id
+service_type
+service_name
+service_link",200,400/401/403/405/413/503/404,Shows details for a specified service.,,,/v3/users
+,Update service,PATCH,/v3/services/{service_id},"service_id
+service_type","service_id
+service_type",200,400/401/403/405/413/503/404,Updates a specified service.,,,List users
+,Delete service,DELETE,/v3/services/{service_id},service_id,,204,400/401/403/405/413/503/404,Deletes a specified service.,,,
+Endpoints,Add Endpoint,POST,/v3/endpoints,"endpoint_interface
+endpoint_name
+endpoint_region (optional)
+endpoint_uri
+endpoint_service_id",,201,400/401/403/405/413/503/404,Adds an endpoint.,,,Lists users.
+,List endpoints,GET,"/v3/endpoints{?interface, service_id,page,per_page}",,"endpoint_interface
+endpoint_name
+endpoint_service_id",200,400/401/403/405/413/503/404,Lists available endpoints.,,,
+,Update endpoint,PATCH,/v3/endpoints/{endpoint_id},"endpoint_interface(optional)
+endpoint_name(optional)
+endpoint_region (optional)
+endpoint_uri(optional)
+endpoint_service_id",,200,400/401/403/405/413/503/404,Updates a specified endpoint.,,,
+,Delete endpoint,DELETE,/v3/endpoints/{endpoint_id},"
+endpoint_service_id",,201,400/401/403/405/413/503/404,Deletes a specified endpoint.,,,GET
+Domains,Add domain,POST,/v3/domains,"domain_description(optional)
+domain_enabled(optional)
+domain_name","domain_description
+domain_enabled
+domain_id
+domain_links
+domain_name",201,400/401/403/405/413/503/404,Adds a domain.,,,/v3/users/?{user_id}?
+,List domains,GET,"/v3/domains{?name,enabled,page,per_page}",,"domain_description
+domain_enabled
+domain_id
+domain_links
+domain_name",200,400/401/403/405/413/503/404,Lists domains.,,,Show user details
+,Show domain details,GET,/v3/domains/{domain_id},domain_id,"domain_description
+domain_enabled
+domain_id
+domain_links
+domain_name",200,400/401/403/405/413/503/404,Shows details for a specified domain.,,,
+,Update domain,PATCH,/v3/domains/{domain_id},"domain_id
+domain_description(optional)
+domain_enabled(optional)
+domain_name(optional)
+","domain_description
+domain_enabled
+domain_id
+domain_links
+domain_name",200,400/401/403/405/413/503/404,Updates a specified domain.,,,Shows details for a specified user.
+,Delete domain,DELETE,/v3/domains/{domain_id},domain_id,,204,400/401/403/405/413/503/404,Deletes a specified domain.,,,
+,List roles for domain user,GET,/v3/domains/{domain_id}/users/{user_id}/roles,"domain_id
+user_id","domain_role_id
+domain_role_name",200,400/401/403/405/413/503/404,Lists roles for a user on a domain.,,,
+,List roles for domain group,GET,/v3/domains/{domain_id}/groups/{group_id}/roles,"domain_id
+group_id","domain_role_id
+domain_role_name",200,400/401/403/405/413/503/404,Lists roles for a specified domain group.,,,PATCH
+,Grant role to domain group,PUT,/v3/domains/{domain_id}/groups/{group_id}/roles/{role_id},"domain_id
+group_id
+role_id",,204,400/401/403/405/413/503/404,Grants a specified role to a specified domain group.,,,/v3/users/?{user_id}?
+,Check role for domain group,HEAD,/v3/domains/{domain_id}/groups/{group_id}/roles/{role_id},"domain_id
+group_id
+role_id",,204,400/401/403/405/413/503/404,Validates that a group has a role on a domain.,,,Update user
+,Revoke role from domain group,DELETE,/v3/domains/{domain_id}/groups/{group_id}/roles/{role_id},"domain_id
+group_id
+role_id",,204,400/401/403/405/413/503/404,Revokes a role from a group on a domain.,,,
+Projects,Add project,POST,/v3/projects,"project_description(optional)
+project_domain_id
+project_enabled(optional)
+project_name","project_description
+project_domain_id
+project_enabled
+project_id
+project_links
+projects_name",201,400/401/403/405/413/503/404,Adds a project.,,,Updates the password for or enables or disables a specified user.
+,List projects,GET,/v3/projects,,"project_description
+project_domain_id
+project_enabled
+project_id
+project_links
+projects_name",200,400/401/403/405/413/503/404,Lists projects.,,,
+,Show project details,GET,/v3/projects/?{project_id}?,project_id,"project_description
+project_domain_id
+project_enabled
+project_id
+project_links
+projects_name",200,400/401/403/405/413/503/404,Shows details for a specified project.,,,
+,Update project,PATCH,/v3/projects/?{project_id}?,"project_id
+project_description(optional)
+project_domain_id(optional)
+project_enabled(optional)
+project_name(optional)","project_description
+project_domain_id
+project_enabled
+project_id
+project_links
+projects_name",200,400/401/403/405/413/503/404,Updates a specified project.,,,DELETE
+,Delete project,DELETE,/v3/projects/?{project_id}?,project_id,,204,400/401/403/405/413/503/404,Deletes a specified project.,,,/v3/users/?{user_id}?
+,List roles for project user,GET,/v3/projects/?{project_id}?/users/?{user_id}?/roles,"project_id
+user_id","project_user_roles_id
+project_user_roles_links
+project_user_roles_name",200,400/401/403/405/413/503/404,Lists roles for a user in a project.,,,Delete user
+,Grant role to project user,PUT,/v3/projects/?{project_id}?/users/?{user_id}?/roles/?{role_id}?,"project_id
+user_id
+role_id",,204,400/401/403/405/413/503/404,Grants a role to a user on a project.,,,
+,Check role for project user,HEAD,/v3/projects/?{project_id}?/users/?{user_id}?/roles/?{role_id}?,"project_id
+user_id
+role_id",,200,400/401/403/405/413/503/404,Validates that a user has a specified role on a project.,,,Deletes a specified user.
+,Revoke role from project user,DELETE,/v3/projects/?{project_id}?/users/?{user_id}?/roles/?{role_id}?,"project_id
+user_id
+role_id",,204,400/401/403/405/413/503/404,Revokes a role from a project user.,,,
+,List roles for project group,GET,/v3/projects/?{project_id}?/groups/?{group_id}?/roles,"project_id
+group_id","project_group_roles_id
+project_group_roles_links
+project_group_roles_name",200,400/401/403/405/413/503/404,Lists roles for a project group.,,,
+,Grant role to project group,PUT,/v3/projects/?{project_id}?/groups/?{group_id}?/roles/?{role_id}?,"project_id
+gropup_id
+role_id",,204,400/401/403/405/413/503/404,Grants a role to a project group.,,,GET
+,Check role for project group,HEAD,/v3/projects/?{project_id}?/groups/?{group_id}?/roles/?{role_id}?,"project_id
+gropup_id
+role_id",,200,400/401/403/405/413/503/404,Validates that a project group has a role.,,,/v3/users/?{user_id}?/groups
+,Revoke role from project group,DELETE,/v3/projects/?{project_id}?/groups/?{group_id}?/roles/?{role_id}?,"project_id
+gropup_id
+role_id",,204,400/401/403/405/413/503/404,Revokes a role from a project group.,,,List groups for user
+Users,Add user,POST,/v3/users,"user_default_project_id
+user_description
+user_domain_id
+user_email
+user_enabled
+user_name
+user_password","user_default_project_id
+user_description
+user_domain_id
+user_email
+user_enabled
+user_id
+user_links
+user_name",201,400/401/403/405/413/503/404,Adds a user.,,,
+,List users,GET,/v3/users,,"user_default_project_id
+user_description
+user_domain_id
+user_email
+user_enabled
+user_id
+user_links
+user_name",200,400/401/403/405/413/503/404,Lists users.,,,Lists groups for a specified user.
+,Show user details,GET,/v3/users/?{user_id}?,user_id,"user_default_project_id
+user_description
+user_domain_id
+user_email
+user_enabled
+user_id
+user_links
+user_name",200,400/401/403/405/413/503/404,Shows details for a specified user.,,,
+,Update user,PATCH,/v3/users/?{user_id}?,"user_id
+user_default_project_id(optional)
+user_description(optional)
+user_email(optional)
+user_enabled(optional)","user_default_project_id
+user_description
+user_domain_id
+user_email
+user_enabled
+user_id
+user_links
+user_name",200,400/401/403/405/413/503/404/501,Updates the password for or enables or disables a specified user.,,,
+,Delete user,DELETE,/v3/users/?{user_id}?,user_id,,204,400/401/403/405/413/503/404,Deletes a specified user.,,,GET
+,List groups for user,GET,/v3/users/?{user_id}?/groups,user_id,"user_groups_descrition
+user_groups_domain_id
+user_groups_id
+user_groups_links
+user_groups_name",200,400/401/403/405/413/503/404,Lists groups for a specified user.,,,/v3/users/?{user_id}?/projects
+,List projects for user,GET,/v3/users/?{user_id}?/projects,user_id,"user_projects_descrition
+user_projects_domain_id
+user_projects_enabled
+user_projects_id
+user_projects_links
+user_projects_name",200,400/401/403/405/413/503/404,List projects for a specified user.,,,List projects for user
+Groups,Add group,POST,/v3/groups,"group_description(optional)
+group_domain_id(optional)
+group_name","group_description
+group_domain_id
+group_id
+group_links
+group_name",201,400/401/403/405/413/503/404,Adds a group.,,,
+,List groups,GET,/v3/groups,,"group_description
+group_domain_id
+group_id
+group_links
+group_name",200,400/401/403/405/413/503/404,Lists groups.,,,List projects for a specified user.
+,Show group details,GET,/v3/groups/?{group_id}?,group_id,"group_description
+group_domain_id
+group_id
+group_links
+group_name",200,400/401/403/405/413/503/404,Shows details for a specified group.,,,
+,Update group,PATCH,/v3/groups/?{group_id}?,"group_id
+group_description(optional)
+group_name(optional)","group_description
+group_domain_id
+group_id
+group_links
+group_name",200,400/401/403/405/413/503/404,Updates a specified group.,,,
+,Delete group,DELETE,/v3/groups/?{group_id}?,grooup_id,,204,400/401/403/405/413/503/404,Deletes a specified group.,,,POST
+,List users in group,GET,/v3/groups/?{group_id}?/users,grooup_id,"group_users_default_project_id
+group_users_description
+group_users_domain_id
+group_users_email
+group_users_enabled
+group_users_id
+group_users_links
+group_users_name",200,400/401/403/405/413/503/404,Lists the users in a specified group.,,,/v3/groups
+,Add user to group,PUT,/v3/groups/?{group_id}?/users/?{user_id}?,"group_id
+user_id",,204,400/401/403/405/413/503/404,Adds a user to a specified group.,,,Add group
+,Remove user from group,DELETE,/v3/groups/?{group_id}?/users/?{user_id}?,"group_id
+user_id",,204,400/401/403/405/413/503/404,Removes a user from a group.,,,
+,Check user membership in group,HEAD,/v3/groups/?{group_id}?/users/?{user_id}?,"group_id
+user_id",,200,400/401/403/405/413/503/404,Validates that a user is in a group.,,,Adds a group.
+Credentials,Add credential,POST,/v3/credentials,"credential_blob
+credential_project_id
+credential_type
+credential_user_id","credential_blob
+credential_id
+credential_links
+credential_project_id
+credential_type
+credential_user_id",201,400/401/403/405/413/503/404,Adds a credential.,,,
+,List credentials,GET,/v3/credentials,,"credential_blob
+credential_id
+credential_links
+credential_project_id
+credential_type
+credential_user_id",200,400/401/403/405/413/503/404,Lists credentials.,,,
+,Show credential details,GET,/v3/credentials/?{credential_id}?,credential_id,"credential_blob
+credential_id
+credential_links
+credential_project_id
+credential_type
+credential_user_id",200,400/401/403/405/413/503/404,Shows details for a specified credential.,,,GET
+,Update credential,PATCH,/v3/credentials/?{credential_id}?,"credential_id
+credential_blob(optional)
+credential_project_id(optional)
+credential_type(optional)
+credential_user_id(optional)","credential_blob
+credential_id
+credential_links
+credential_project_id
+credential_type
+credential_user_id",200,400/401/403/405/413/503/404,Updates a specified credential.,,,/v3/groups
+,Delete credential,DELETE,/v3/credentials/?{credential_id}?,credential_id,,204,400/401/403/405/413/503/404,Deletes a specified credential.,,,List groups
+Roles,Add role,POST,/v3/roles,role_name,"role_id
+role_links
+role_name",201,400/401/403/405/413/503/404,Adds a role.,,,
+,List roles,GET,/v3/roles,,"role_id
+role_links
+role_name",200,400/401/403/405/413/503/404,Lists roles.,,,Lists groups.
+,Grant role to domain user,PUT,/v3/domains/{domain_id}/users/{user_id}/roles/{role_id},"domain_id
+user_id
+role_id",,204,400/401/403/405/413/503/404,Grants a role to a specified domain user.,,,
+,Check role for domain user,HEAD,/v3/domains/{domain_id}/users/{user_id}/roles/{role_id},"domain_id
+user_id
+role_id",,204,400/401/403/405/413/503/404,Validates that a user has a role on a domain.,,,
+,Revoke role from domain user,DELETE,/v3/domains/{domain_id}/users/{user_id}/roles/{role_id},"domain_id
+user_id
+role_id",,204,400/401/403/405/413/503/404,Revokes a role from a specified domain user.,,,
+Policies,Add policy,POST,/v3/policies,"policy_blob
+policy_project_id
+policy_type
+policy_user_id","policy_blob
+policy_id
+policy_links
+policy_project_id
+policy_type
+policy_user_id",201,400/401/403/405/413/503/404,Adds a policy.,,,
+,List policies,GET,/v3/policies,,"policy_blob
+policy_id
+policy_links
+policy_project_id
+policy_type
+policy_user_id",200,400/401/403/405/413/503/404,Lists policies.,,,GET
+,Show policy details,GET,/v3/policies/?{policy_id}?,policy_id,"policy_blob
+policy_id
+policy_links
+policy_project_id
+policy_type
+policy_user_id",200,400/401/403/405/413/503/404,Shows details for a specified policy.,,,/v3/groups/?{group_id}?
+,Update policy,PATCH,/v3/policies/?{policy_id}?,"policy_id
+policy_blob(optional)
+policy_project_id(optional)
+policy_type(optional)
+policy_user_id(optional)
+","policy_blob
+policy_id
+policy_links
+policy_project_id
+policy_type
+policy_user_id",200,400/401/403/405/413/503/404,Updates a specified policy.,,,Show group details
+,Delete policy,DELETE,/v3/policies/?{policy_id}?,policy_id,,204,400/401/403/405/413/503/404,Deletes a specified policy.,,,
+,,,,,,,,,,,Shows details for a specified group.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,PATCH
+,,,,,,,,,,,/v3/groups/?{group_id}?
+,,,,,,,,,,,Update group
+,,,,,,,,,,,
+,,,,,,,,,,,Updates a specified group.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,DELETE
+,,,,,,,,,,,/v3/groups/?{group_id}?
+,,,,,,,,,,,Delete group
+,,,,,,,,,,,
+,,,,,,,,,,,Deletes a specified group.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v3/groups/?{group_id}?/users
+,,,,,,,,,,,List users in group
+,,,,,,,,,,,
+,,,,,,,,,,,Lists the users in a specified group.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,PUT
+,,,,,,,,,,,/v3/groups/?{group_id}?/users/?{user_id}?
+,,,,,,,,,,,Add user to group
+,,,,,,,,,,,
+,,,,,,,,,,,Adds a user to a specified group.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,DELETE
+,,,,,,,,,,,/v3/groups/?{group_id}?/users/?{user_id}?
+,,,,,,,,,,,Remove user from group
+,,,,,,,,,,,
+,,,,,,,,,,,Removes a user from a group.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,HEAD
+,,,,,,,,,,,/v3/groups/?{group_id}?/users/?{user_id}?
+,,,,,,,,,,,Check user membership in group
+,,,,,,,,,,,
+,,,,,,,,,,,Validates that a user is in a group.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v3/credentials
+,,,,,,,,,,,Add credential
+,,,,,,,,,,,
+,,,,,,,,,,,Adds a credential.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v3/credentials
+,,,,,,,,,,,List credentials
+,,,,,,,,,,,
+,,,,,,,,,,,Lists credentials.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v3/credentials/?{credential_id}?
+,,,,,,,,,,,Show credential details
+,,,,,,,,,,,
+,,,,,,,,,,,Shows details for a specified credential.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,PATCH
+,,,,,,,,,,,/v3/credentials/?{credential_id}?
+,,,,,,,,,,,Update credential
+,,,,,,,,,,,
+,,,,,,,,,,,Updates a specified credential.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,DELETE
+,,,,,,,,,,,/v3/credentials/?{credential_id}?
+,,,,,,,,,,,Delete credential
+,,,,,,,,,,,
+,,,,,,,,,,,Deletes a specified credential.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v3/roles
+,,,,,,,,,,,Add role
+,,,,,,,,,,,
+,,,,,,,,,,,Adds a role.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v3/roles
+,,,,,,,,,,,List roles
+,,,,,,,,,,,
+,,,,,,,,,,,Lists roles.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v3/role_assignments
+,,,,,,,,,,,List role assignments
+,,,,,,,,,,,
+,,,,,,,,,,,Lists role assignments.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v3/policies
+,,,,,,,,,,,Add policy
+,,,,,,,,,,,
+,,,,,,,,,,,Adds a policy.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v3/policies
+,,,,,,,,,,,List policies
+,,,,,,,,,,,
+,,,,,,,,,,,Lists policies.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v3/policies/?{policy_id}?
+,,,,,,,,,,,Show policy details
+,,,,,,,,,,,
+,,,,,,,,,,,Shows details for a specified policy.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,PATCH
+,,,,,,,,,,,/v3/policies/?{policy_id}?
+,,,,,,,,,,,Update policy
+,,,,,,,,,,,
+,,,,,,,,,,,Updates a specified policy.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,DELETE
+,,,,,,,,,,,/v3/policies/?{policy_id}?
+,,,,,,,,,,,Delete policy
+,,,,,,,,,,,
+,,,,,,,,,,,Deletes a specified policy.

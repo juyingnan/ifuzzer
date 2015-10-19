@@ -1,0 +1,507 @@
+Category,Name,Method,URI,Input,Response,Normal Response Code,Error Response Code,Description,Remark,,POST
+Images,Create image,POST,/v2/images,"image_name
+image_id
+image_visibility
+image_tags
+image_container_format
+image_disk_format
+image_min_disk
+image_min_ram
+image_protected
+image_properties","image_status
+image_container_format
+image_min_ram
+image_updated_at
+image_owner
+image_own_disk
+image_tags
+image_visibility
+image_id
+image_size
+image_virtual_size
+image_name
+image_checksum
+image_created_at
+image_disk_format
+image_properties
+image_protected
+image_location
+image_self
+image_file
+image_schema",201,400/401/403/405/413/503/404,Creates a virtual machine (VM) image. (Since Image API v2.0.),,,Create image
+,List images,GET,/v2/images,"image_limit (Optional)
+image_marker (Optional)
+image_name (Optional)
+image_visibility (Optional)
+image_member_status (Optional)
+image_owner (Optional)
+image_status (Optional)
+image_size_min (Optional)
+image_size_max (Optional)
+image_sort_key (Optional)
+image_sort_dir (Optional)
+image_sort (Optional)
+image_tag (Optional)","image_status
+image_name
+image_tags
+image_container_format
+image_created_at
+image_disk_format
+image_updated_at
+image_min_disk
+image_protected
+image_id
+image_min_ram
+image_checksum
+image_owner
+image_visibility
+image_virtual_size
+image_size
+image_properties
+image_url
+image_metadata
+image_direct_url
+image_self
+image_file
+image_schema
+image_first",200,400/401/403/405/413/503/404,Lists public virtual machine (VM) images. (Since Image API v2.0.),,,
+,Get image details,GET,/v2/images/?{image_id}?,image_id,"image_status
+image_name
+image_tags
+image_container_format
+image_created_at
+image_disk_format
+image_updated_at
+image_min_disk
+image_protected
+image_id
+image_min_ram
+image_checksum
+image_owner
+image_visibility
+image_size
+image_properties
+image_url
+image_metadata
+image_direct_url
+image_self
+image_file
+image_schema",200,400/401/403/405/413/503/404,Gets details for a specified image. (Since Image API v2.0.),,,Creates a virtual machine (VM) image. (Since Image API v2.0.)
+,Update image,PATCH,/v2/images/?{image_id}?,"image_id
+image_path
+image_value
+image_op
+image_url
+image_metadata","image_status
+image_name
+image_tags
+image_container_format
+image_created_at
+image_disk_format
+image_updated_at
+image_min_disk
+image_protected
+image_id
+image_min_ram
+image_checksum
+image_owner
+image_visibility
+image_size
+image_properties
+image_url
+image_metadata
+image_direct_url
+image_self
+image_file
+image_schema",200,400/401/403/405/413/503/404,Updates a specified image. (Since Image API v2.0.),,,
+,Delete image,DELETE,/v2/images/?{image_id}?,image_id,,204,400/401/403/405/413/503/404,Deletes a specified image. (Since Image API v2.0.),,,
+,Reactivate image,POST,/v2/images/?{image_id}?/actions/reactivate,image_id,,204,400/401/403/405/413/503/404,Reactivates a specified image. (Since Image API v2.0.),,,GET
+,Deactivate image,POST,/v2/images/?{image_id}?/actions/deactivate,image_id,,204,400/401/403/405/413/503/404,Deactivates a specified image. (Since Image API v2.0.),,,/v2/images
+Image Data,Upload binary image data,PUT,/v2/images/?{image_id}?/file,image_id,,204,400/401/403/405/413/503/404,Uploads binary image data. (Since Image API v2.0.),,,List images
+,Download binary image data,GET,/v2/images/?{image_id}?/file,"image_id
+image_Content-Range",,200/204,400/401/403/405/413/503/404,Downloads binary image data. (Since Image API v2.0.),,,
+Image tags,Add image tag,PUT,/v2/images/?{image_id}?/tags/?{tag}?,"image_id
+image_tag",,204,400/401/403/405/413/503/404,Adds a specified tag to a specified image. (Since Image API v2.0.),,,Lists public virtual machine (VM) images. (Since Image API v2.0.)
+,Delete image tag,DELETE,/v2/images/?{image_id}?/tags/?{tag}?,"image_id
+image_tag",,204,400/401/403/405/413/503/404,Deletes a specified tag from a specified image. (Since Image API v2.0.),,,
+Members,Create image member,POST,/v2/images/?{image_id}?/members,image_id,,200,400/401/403/405/413/503/404/409,Adds a specified tenant ID as an image member. (Since Image API v2.1.),,,
+,List image members,GET,/v2/images/?{image_id}?/members,image_id,image_schema,200,400/401/403/405/413/503/404,Lists the tenants with whom this image has been shared. (Since Image API v2.1.),,,GET
+,Show image member details,GET,/v2/images/?{image_id}?/members/?{member_id}?,"image_id
+image_member_id",,200,400/401/403/405/413/503/404,Shows image member details.,,,/v2/images/?{image_id}?
+,Delete image member,DELETE,/v2/images/?{image_id}?/members/?{member_id}?,"image_id
+image_member_id",,204,400/401/403/405/413/503/404,Deletes a specified tenant ID from the member list of the specified image. (Since Image API v2.1.),,,Get image details
+,Update image member,PUT,/v2/images/?{image_id}?/members/?{member_id}?,"image_id
+image_member_id
+image_status",,200,400/401/403/405/413/503/404,Sets the specified status for the specified member of the specified image. (Since Image API v2.1.),,,
+Image Schemas,Get images schema,GET,/v2/schemas/images,,images_schema,200,400/401/403/405/413/503/404,Gets a json-schema document that represents an images entity. (Since Images v2.0.),,,Gets details for a specified image. (Since Image API v2.0.)
+,Get image schema,GET,/v2/schemas/image,,image_schema,200,400/401/403/405/413/503/404,Gets a json-schema document that represents an image entity. (Since Images v2.0.),,,
+,Get image members schema,GET,/v2/schemas/members,,image_members_schema,200,400/401/403/405/413/503/404,Gets a json-schema document that represents an image members entity. (Since Images v2.1.),,,
+,Get image member schema,GET,/v2/schemas/member,,image_member_schema,200,400/401/403/405/413/503/404,Gets a json-schema document that represents an image member entity. (Since Images v2.1.),,,PATCH
+Metadata definition resource types,List resource types,GET,/v2/metadefs,,,,400/401/403/405/413/503/404,Lists resource types.,,,/v2/images/?{image_id}?
+,Create resource type association,POST,/v2/metadefs/namespaces/?{namespace}?/resource_types,,,,400/401/403/405/413/503/404,Creates a resource type association in a namespace.,,,Update image
+,List resource type associations,GET,/v2/metadefs/namespaces/?{namespace}?/resource_types,,,,400/401/403/405/413/503/404,Lists resource type associations in a specified namespace.,,,
+,Remove resource type association,DELETE,/v2/metadefs/namespaces/?{namespace}?/resource_types/?{name}?,,,,400/401/403/405/413/503/404,Removes a specified resource type association in a specified namespace.,,,Updates a specified image. (Since Image API v2.0.)
+Metadata definition namespaces,Create namespace,POST,/v2/metadefs/namespaces,,,,400/401/403/405/413/503/404,Creates a namespace.,,,
+,List namespaces,GET,/v2/metadefs/namespaces,,,,400/401/403/405/413/503/404,Lists public namespaces.,,,
+,Get namespaces details,GET,/v2/metadefs/namespaces/?{namespace}?,,,,400/401/403/405/413/503/404,Gets details for a specified namespace.,,,DELETE
+,Update namespace,PUT,/v2/metadefs/namespaces/?{namespace}?,,,,400/401/403/405/413/503/404,Updates a specified namespace.,,,/v2/images/?{image_id}?
+,Delete namespace,DELETE,/v2/metadefs/namespaces/?{namespace}?,,,,400/401/403/405/413/503/404,"Deletes a specified namespace and its properties, objects, and any resource type associations.",,,Delete image
+Metadata definition properties,Create property,POST,/v2/metadefs/namespaces/?{namespace}?/properties,,,,400/401/403/405/413/503/404,Creates a property definition within a namespace. Schema is subset of JSON Property definition schema,,,
+,List properties,GET,/v2/metadefs/namespaces/?{namespace}?/properties,,,,400/401/403/405/413/503/404,Lists property definitions within a namespace.,,,Deletes a specified image. (Since Image API v2.0.)
+,Get property definition,GET,/v2/metadefs/namespaces/?{namespace}?/properties/?{property_name}?,,,,400/401/403/405/413/503/404,Gets definition for a specified property.,,,
+,Update property definition,PUT,/v2/metadefs/namespaces/?{namespace}?/properties/?{property_name}?,,,,400/401/403/405/413/503/404,Updates a specified property definition.,,,
+,Remove property definition,DELETE,/v2/metadefs/namespaces/?{namespace}?/properties/?{property_name}?,,,,400/401/403/405/413/503/404,Removes a specified property definition in a specified namespace.,,,POST
+Metadata definition objects,Create object,POST,/v2/metadefs/namespaces/?{namespace}?/objects,,,,400/401/403/405/413/503/404,Creates an object definition in a specified namespace.,,,/v2/images/?{image_id}?/actions/reactivate
+,List objects,GET,/v2/metadefs/namespaces/?{namespace}?/objects,,,,400/401/403/405/413/503/404,Lists object definitions within a namespace.,,,Reactivate image
+,Get object definition,GET,/v2/metadefs/namespaces/?{namespace}?/objects/?{object_name}?,,,,400/401/403/405/413/503/404,Gets definition for a specified object.,,,
+,Update object definition,PUT,/v2/metadefs/namespaces/?{namespace}?/objects/?{object_name}?,,,,400/401/403/405/413/503/404,Updates a specified object definition in a specified namespace.,,,Reactivates a specified image. (Since Image API v2.0.)
+,Delete property definition,DELETE,/v2/metadefs/namespaces/?{namespace}?/objects/?{object_name}?,,,,400/401/403/405/413/503/404,Deletes a specified object definition within a namespace.,,,
+Metadata definition tags,Create tags,POST,/v2/metadefs/namespaces/?{namespace}?/tags,,,,400/401/403/405/413/503/404,Creates one or more tag definitions in a specified namespace.,,,
+,List tags,GET,/v2/metadefs/namespaces/?{namespace}?/tags,,,,400/401/403/405/413/503/404,Lists the tag definitions within a namespace.,,,POST
+,Delete all tag definitions,DELETE,/v2/metadefs/namespaces/?{namespace}?/tags,,,,400/401/403/405/413/503/404,Deletes all tag definitions within a namespace.,,,/v2/images/?{image_id}?/actions/deactivate
+,Add tag definition,POST,/v2/metadefs/namespaces/?{namespace}?/tags/?{name}?,,,,400/401/403/405/413/503/404,Adds a specified tag to the list of namespace tag definitions.,,,Deactivate image
+,Get tag definition,GET,/v2/metadefs/namespaces/?{namespace}?/tags/?{name}?,,,,400/401/403/405/413/503/404,Gets a definition for the specified tag.,,,
+,Update tag definition,PUT,/v2/metadefs/namespaces/?{namespace}?/tags/?{name}?,,,,400/401/403/405/413/503/404,Renames a specified tag definition.,,,Deactivates a specified image. (Since Image API v2.0.)
+,Delete tag definition,DELETE,/v2/metadefs/namespaces/?{namespace}?/tags/?{name}?,,,,400/401/403/405/413/503/404,Deletes a specified tag definition within a namespace.,,,
+Metadata definition schemas,Get metadata definition namespace schema,GET,/v2/schemas/metadefs/namespace,,,,400/401/403/405/413/503/404,Gets a JSON schema document that represents a metadata definition namespace entity. (Since API v2.1.),,,
+,Get metadata definition namespaces schema,GET,/v2/schemas/metadefs/namespaces,,,,400/401/403/405/413/503/404,Gets a JSON schema document that represents a metadata definition namespaces entity. (Since API v2.1.),,,PUT
+,Get metadata definition object schema,GET,/v2/schemas/metadefs/object,,,,400/401/403/405/413/503/404,Gets a JSON schema document that represents a metadata definition object entity. (Since API v2.1.),,,/v2/images/?{image_id}?/file
+,Get metadata definition objects schema,GET,/v2/schemas/metadefs/objects,,,,400/401/403/405/413/503/404,Gets a JSON schema document that represents a metadata definition objects entity. (Since API v2.1.),,,Upload binary image data
+,Get metadata definition property schema,GET,/v2/schemas/metadefs/property,,,,400/401/403/405/413/503/404,Gets a JSON schema document that represents a metadata definition property entity. (Since API v2.1.),,,
+,Get metadata definition properties schema,GET,/v2/schemas/metadefs/properties,,,,400/401/403/405/413/503/404,Gets a JSON schema document that represents a metadata definition properties entity. (Since API v2.1.),,,Uploads binary image data. (Since Image API v2.0.)
+,Get metadata definition tag schema,GET,/v2/schemas/metadefs/tag,,,,400/401/403/405/413/503/404,Gets a JSON schema document that represents a metadata definition tag entity. (Since API v2.1.),,,
+,Get metadata definition tags schema,GET,/v2/schemas/metadefs/tags,,,,400/401/403/405/413/503/404,Gets a JSON schema document that represents a metadata definition tags entity. (Since API v2.1.),,,
+,Get metadata definition namespace resource type association schema,GET,/v2/schemas/metadefs/resource_type,,,,400/401/403/405/413/503/404,Gets a JSON schema document that represents a metadata definition namespace resource type association entity. (Since API v2.1.),,,GET
+,Get metadata definition namespace resource type associations schema,GET,/v2/schemas/metadefs/resource_types,,,,400/401/403/405/413/503/404,Gets a JSON schema document that represents a metadata definition namespace resource type associations entity. (Since API v2.1.),,,/v2/images/?{image_id}?/file
+,,,,,,,,,,,Download binary image data
+,,,,,,,,,,,
+,,,,,,,,,,,Downloads binary image data. (Since Image API v2.0.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,PUT
+,,,,,,,,,,,/v2/images/?{image_id}?/tags/?{tag}?
+,,,,,,,,,,,Add image tag
+,,,,,,,,,,,
+,,,,,,,,,,,Adds a specified tag to a specified image. (Since Image API v2.0.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,DELETE
+,,,,,,,,,,,/v2/images/?{image_id}?/tags/?{tag}?
+,,,,,,,,,,,Delete image tag
+,,,,,,,,,,,
+,,,,,,,,,,,Deletes a specified tag from a specified image. (Since Image API v2.0.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v2/images/?{image_id}?/members
+,,,,,,,,,,,Create image member
+,,,,,,,,,,,
+,,,,,,,,,,,Adds a specified tenant ID as an image member. (Since Image API v2.1.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/images/?{image_id}?/members
+,,,,,,,,,,,List image members
+,,,,,,,,,,,
+,,,,,,,,,,,Lists the tenants with whom this image has been shared. (Since Image API v2.1.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/images/?{image_id}?/members/?{member_id}?
+,,,,,,,,,,,Show image member details
+,,,,,,,,,,,
+,,,,,,,,,,,Shows image member details.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,DELETE
+,,,,,,,,,,,/v2/images/?{image_id}?/members/?{member_id}?
+,,,,,,,,,,,Delete image member
+,,,,,,,,,,,
+,,,,,,,,,,,Deletes a specified tenant ID from the member list of the specified image. (Since Image API v2.1.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,PUT
+,,,,,,,,,,,/v2/images/?{image_id}?/members/?{member_id}?
+,,,,,,,,,,,Update image member
+,,,,,,,,,,,
+,,,,,,,,,,,Sets the specified status for the specified member of the specified image. (Since Image API v2.1.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/schemas/images
+,,,,,,,,,,,Get images schema
+,,,,,,,,,,,
+,,,,,,,,,,,Gets a json-schema document that represents an images entity. (Since Images v2.0.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/schemas/image
+,,,,,,,,,,,Get image schema
+,,,,,,,,,,,
+,,,,,,,,,,,Gets a json-schema document that represents an image entity. (Since Images v2.0.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/schemas/members
+,,,,,,,,,,,Get image members schema
+,,,,,,,,,,,
+,,,,,,,,,,,Gets a json-schema document that represents an image members entity. (Since Images v2.1.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/schemas/member
+,,,,,,,,,,,Get image member schema
+,,,,,,,,,,,
+,,,,,,,,,,,Gets a json-schema document that represents an image member entity. (Since Images v2.1.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/metadefs
+,,,,,,,,,,,List resource types
+,,,,,,,,,,,
+,,,,,,,,,,,Lists resource types.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/resource_types
+,,,,,,,,,,,Create resource type association
+,,,,,,,,,,,
+,,,,,,,,,,,Creates a resource type association in a namespace.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/resource_types
+,,,,,,,,,,,List resource type associations
+,,,,,,,,,,,
+,,,,,,,,,,,Lists resource type associations in a specified namespace.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,DELETE
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/resource_types/?{name}?
+,,,,,,,,,,,Remove resource type association
+,,,,,,,,,,,
+,,,,,,,,,,,Removes a specified resource type association in a specified namespace.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v2/metadefs/namespaces
+,,,,,,,,,,,Create namespace
+,,,,,,,,,,,
+,,,,,,,,,,,Creates a namespace.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/metadefs/namespaces
+,,,,,,,,,,,List namespaces
+,,,,,,,,,,,
+,,,,,,,,,,,Lists public namespaces.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?
+,,,,,,,,,,,Get namespaces details
+,,,,,,,,,,,
+,,,,,,,,,,,Gets details for a specified namespace.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,PUT
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?
+,,,,,,,,,,,Update namespace
+,,,,,,,,,,,
+,,,,,,,,,,,Updates a specified namespace.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,DELETE
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?
+,,,,,,,,,,,Delete namespace
+,,,,,,,,,,,
+,,,,,,,,,,,"Deletes a specified namespace and its properties, objects, and any resource type associations."
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/properties
+,,,,,,,,,,,Create property
+,,,,,,,,,,,
+,,,,,,,,,,,Creates a property definition within a namespace. Schema is subset of JSON Property definition schema
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/properties
+,,,,,,,,,,,List properties
+,,,,,,,,,,,
+,,,,,,,,,,,Lists property definitions within a namespace.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/properties/?{property_name}?
+,,,,,,,,,,,Get property definition
+,,,,,,,,,,,
+,,,,,,,,,,,Gets definition for a specified property.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,PUT
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/properties/?{property_name}?
+,,,,,,,,,,,Update property definition
+,,,,,,,,,,,
+,,,,,,,,,,,Updates a specified property definition.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,DELETE
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/properties/?{property_name}?
+,,,,,,,,,,,Remove property definition
+,,,,,,,,,,,
+,,,,,,,,,,,Removes a specified property definition in a specified namespace.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/objects
+,,,,,,,,,,,Create object
+,,,,,,,,,,,
+,,,,,,,,,,,Creates an object definition in a specified namespace.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/objects
+,,,,,,,,,,,List objects
+,,,,,,,,,,,
+,,,,,,,,,,,Lists object definitions within a namespace.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/objects/?{object_name}?
+,,,,,,,,,,,Get object definition
+,,,,,,,,,,,
+,,,,,,,,,,,Gets definition for a specified object.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,PUT
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/objects/?{object_name}?
+,,,,,,,,,,,Update object definition
+,,,,,,,,,,,
+,,,,,,,,,,,Updates a specified object definition in a specified namespace.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,DELETE
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/objects/?{object_name}?
+,,,,,,,,,,,Delete property definition
+,,,,,,,,,,,
+,,,,,,,,,,,Deletes a specified object definition within a namespace.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/tags
+,,,,,,,,,,,Create tags
+,,,,,,,,,,,
+,,,,,,,,,,,Creates one or more tag definitions in a specified namespace.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/tags
+,,,,,,,,,,,List tags
+,,,,,,,,,,,
+,,,,,,,,,,,Lists the tag definitions within a namespace.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,DELETE
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/tags
+,,,,,,,,,,,Delete all tag definitions
+,,,,,,,,,,,
+,,,,,,,,,,,Deletes all tag definitions within a namespace.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/tags/?{name}?
+,,,,,,,,,,,Add tag definition
+,,,,,,,,,,,
+,,,,,,,,,,,Adds a specified tag to the list of namespace tag definitions.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/tags/?{name}?
+,,,,,,,,,,,Get tag definition
+,,,,,,,,,,,
+,,,,,,,,,,,Gets a definition for the specified tag.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,PUT
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/tags/?{name}?
+,,,,,,,,,,,Update tag definition
+,,,,,,,,,,,
+,,,,,,,,,,,Renames a specified tag definition.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,DELETE
+,,,,,,,,,,,/v2/metadefs/namespaces/?{namespace}?/tags/?{name}?
+,,,,,,,,,,,Delete tag definition
+,,,,,,,,,,,
+,,,,,,,,,,,Deletes a specified tag definition within a namespace.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/schemas/metadefs/namespace
+,,,,,,,,,,,Get metadata definition namespace schema
+,,,,,,,,,,,
+,,,,,,,,,,,Gets a JSON schema document that represents a metadata definition namespace entity. (Since API v2.1.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/schemas/metadefs/namespaces
+,,,,,,,,,,,Get metadata definition namespaces schema
+,,,,,,,,,,,
+,,,,,,,,,,,Gets a JSON schema document that represents a metadata definition namespaces entity. (Since API v2.1.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/schemas/metadefs/object
+,,,,,,,,,,,Get metadata definition object schema
+,,,,,,,,,,,
+,,,,,,,,,,,Gets a JSON schema document that represents a metadata definition object entity. (Since API v2.1.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/schemas/metadefs/objects
+,,,,,,,,,,,Get metadata definition objects schema
+,,,,,,,,,,,
+,,,,,,,,,,,Gets a JSON schema document that represents a metadata definition objects entity. (Since API v2.1.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/schemas/metadefs/property
+,,,,,,,,,,,Get metadata definition property schema
+,,,,,,,,,,,
+,,,,,,,,,,,Gets a JSON schema document that represents a metadata definition property entity. (Since API v2.1.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/schemas/metadefs/properties
+,,,,,,,,,,,Get metadata definition properties schema
+,,,,,,,,,,,
+,,,,,,,,,,,Gets a JSON schema document that represents a metadata definition properties entity. (Since API v2.1.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/schemas/metadefs/tag
+,,,,,,,,,,,Get metadata definition tag schema
+,,,,,,,,,,,
+,,,,,,,,,,,Gets a JSON schema document that represents a metadata definition tag entity. (Since API v2.1.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/schemas/metadefs/tags
+,,,,,,,,,,,Get metadata definition tags schema
+,,,,,,,,,,,
+,,,,,,,,,,,Gets a JSON schema document that represents a metadata definition tags entity. (Since API v2.1.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/schemas/metadefs/resource_type
+,,,,,,,,,,,Get metadata definition namespace resource type association schema
+,,,,,,,,,,,
+,,,,,,,,,,,Gets a JSON schema document that represents a metadata definition namespace resource type association entity. (Since API v2.1.)
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/schemas/metadefs/resource_types
+,,,,,,,,,,,Get metadata definition namespace resource type associations schema
+,,,,,,,,,,,
+,,,,,,,,,,,Gets a JSON schema document that represents a metadata definition namespace resource type associations entity. (Since API v2.1.)

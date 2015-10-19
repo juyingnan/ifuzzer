@@ -1,0 +1,528 @@
+Category,Name,Method,URI,Input,Response,Normal Response Code,Error Response Code,Description,Remark,,GET
+Limits,List limits,GET,/v2/?{tenant_id}?/limits,tenanta_id,"X-Compute-Request-ID (Optional)
+maxImageMeta
+maxPersonality
+maxPersonalitySize
+maxSecurityGroupRules
+maxSecurityGroups
+maxServerMeta
+maxTotalCores
+maxTotalFloatingIps
+maxTotalInstances
+maxTotalKeypairs
+maxTotalRAMSize
+maxServerGroups
+maxServerGroupMembers
+rate",200/203,500/400/401/403/405/413/503/404,Lists the current absolute and rate limits for a specified project.,,,/v2/?{tenant_id}?/limits
+Extensions,List extensions,GET,/v2/extensions,,"X-Compute-Request-ID (Optional)
+next (Optional)
+previous (Optional)",200/203,500/400/401/403/405/413/503/404,Lists available extensions.,,,List limits
+,Get extension,GET,/v2/extensions/?{alias}?,extension_alias,X-Compute-Request-ID (Optional),200/203,500/400/401/403/405/413/503/404,Gets details about the specified extension.,,,
+Servers,List servers,GET,/v2/?{tenant_id}?/servers,"tenant_id
+server_changes-since (Optional)
+image_id (Optional)
+flavor_id (Optional)
+server_name (Optional)
+server_status (Optional)
+server_host (Optional)
+server_limit (Optional)
+server_marker (Optional)","X-Compute-Request-ID (Optional)
+servers
+next (Optional)
+previous (Optional)",200/203,500/400/401/403/405/413/503/404,"Lists IDs, names, and links for all servers.",,,Lists the current absolute and rate limits for a specified project.
+,Create server,POST,/v2/?{tenant_id}?/servers,"tenant_id
+security_groups (Optional)
+user_data (Optional)
+availability_zone (Optional)
+server
+imageRef
+flavorRef
+networks (Optional)
+network_uuid (Optional)
+network_port (Optional)
+network_fixed_ip (Optional)
+server_name
+server_metadata (Optional)
+server_personality (Optional)
+server_block_device_mapping_v2 (Optional)
+device_name
+source_type
+destination_type (Optional)
+delete_on_termination
+guest_format
+boot_index
+config_drive (Optional)
+key_name (Optional)","security_groups (Optional)
+user_data (Optional)
+availability_zone (Optional)
+server
+imageRef
+flavorRef
+networks (Optional)
+network_uuid (Optional)
+network_port (Optional)
+network_fixed_ip (Optional)
+server_name
+server_metadata (Optional)
+server_personality (Optional)
+server_block_device_mapping_v2 (Optional)
+device_name
+source_type
+destination_type (Optional)
+delete_on_termination
+guest_format
+boot_index
+config_drive (Optional)
+key_name (Optional)",202,500/400/401/403/405/413/503/404,Creates a server.,,,
+,List details for servers,GET,/v2/?{tenant_id}?/servers/detail,"tenant_id
+changes-since (Optional)
+image_id (Optional)
+flavor_id (Optional)
+server_name (Optional)
+server_status (Optional)
+server_host (Optional)
+server_limit (Optional)
+server_marker (Optional)","X-Compute-Request-ID (Optional)
+next (Optional)
+previous (Optional)",200/203,500/400/401/403/405/413/503/404,Lists details for all servers.,,,
+,Get server details,GET,/v2/?{tenant_id}?/servers/?{server_id}?,"tenant_id
+server_id","server_accessIPv4
+server_accessIPv6
+server_address
+server_created
+server_flavor
+server_host
+image_id
+server_link
+server_metadata
+server_name
+server_progress
+server_status
+tenant_id
+server_updated
+server_user_id",200/203,500/400/401/403/405/413/503/404,Gets details for a specified server.,,,GET
+,Update server,PUT,/v2/?{tenant_id}?/servers/?{server_id}?,"tenant_id
+server_id
+server_name (optional)
+server_accessIPv4 (optional)
+server_accessIPv6 (optional)
+auto_disk_config (optional)","server_accessIPv4
+server_accessIPv6
+server_address
+server_created
+server_flavor
+server_host
+image_id
+server_link
+server_metadata
+server_name
+server_progress
+server_status
+tenant_id
+server_updated
+server_user_id",200,500/400/401/403/405/413/503/404/409,Updates the editable attributes of the specified server.,,,/v2/extensions
+,Delete server,DELETE,/v2/?{tenant_id}?/servers/?{server_id}?,"tenant_id
+server_id",,204,500/400/401/403/405/413/503/404,Deletes a specified server.,,,List extensions
+Server metadata,Show server metadata,GET,/v2/?{tenant_id}?/servers/?{server_id}?/metadata,"tenant_id
+server_id","X-Compute-Request-ID (Optional)
+next (Optional)
+previous (Optional)
+server_metadata",200/203,500/400/401/403/405/413/503/404/409,Shows metadata for a specified server.,,,
+,Create or replace server metadata items,PUT,/v2/?{tenant_id}?/servers/?{server_id}?/metadata,"tenant_id
+server_id","next (Optional)
+previous (Optional)
+server_metadata",200,500/400/401/403/405/413/503/404/409,Creates or replaces metadata items for a specified server.,,,Lists available extensions.
+,Update server metadata items,POST,/v2/?{tenant_id}?/servers/?{server_id}?/metadata,"tenant_id
+server_id","next (Optional)
+previous (Optional)
+server_metadata",200,500/400/401/403/405/413/503/404/409,Updates metadata items by key for a specified server.,,,
+,Show server metadata item details,GET,/v2/?{tenant_id}?/servers/?{server_id}?/metadata/?{key}?,"tenant_id
+server_id
+server_metadata_key","X-Compute-Request-ID (Optional)
+server_metadata_item",200/203,500/400/401/403/405/413/503/404/409,Shows details for a metadata item by key for a specified server.,,,
+,Create or update server metadata item,PUT,/v2/?{tenant_id}?/servers/?{server_id}?/metadata/?{key}?,"tenant_id
+server_id
+server_metadata_key",server_metadata_item,200,500/400/401/403/405/413/503/404/409,Sets a metadata item by key for a specified server.,,,GET
+,Delete server metadata item,DELETE,/v2/?{tenant_id}?/servers/?{server_id}?/metadata/?{key}?,"tenant_id
+server_id
+server_metadata_key",,204,500/400/401/403/405/413/503/404/409,Deletes a metadata item by key for a specified server.,,,/v2/extensions/?{alias}?
+Server addresses,List addresses,GET,/v2/?{tenant_id}?/servers/?{server_id}?/ips,"tenant_id
+server_id","X-Compute-Request-ID (Optional)
+server_address",200/203,500/400/401/403/405/413/503/404/409,Lists networks and addresses for a specified tenant and server.,,,Get extension
+,List addresses by network,GET,/v2/?{tenant_id}?/servers/?{server_id}?/ips/?{network_label}?,"tenant_id
+server_id
+network_label",,200/203,500/400/401/403/405/413/503/404/409,"Lists addresses for a specified tenant, server, and network.",,,
+Server actions,Change password,POST,/v2/?{tenant_id}?/servers/?{server_id}?/action,"tenant_id
+server_id
+changePassword",,202,500/400/401/403/405/413/503/404/409,Changes the password for a server. Specify the changePassword action in the request body.,,,Gets details about the specified extension.
+,Reboot server,POST,/v2/?{tenant_id}?/servers/?{server_id}?/action,"tenant_id
+server_id
+reboot_type",,202,500/400/401/403/405/413/503/404/409,Reboots the specified server. Specify the reboot action in the request body.,,,
+,Rebuild server,POST,/v2/?{tenant_id}?/servers/?{server_id}?/action,"tenant_id
+server_id
+imageref
+server_name
+server_adminPass
+server_accessIPv4
+server_accessIPv6
+server_metadata
+server_personality
+","location
+server_accessIPv4
+server_accessIPv6
+server_address
+server_adminPass
+server_created
+server_flavor
+server_host
+image_id
+server_link
+server_metadata
+server_name
+server_progress
+server_status
+tenant_id
+server_updated
+server_user_id",202,500/400/401/403/405/413/503/404/409,Rebuilds the specified server. Specify the rebuild action in the request body.,,,
+,Resize server,POST,/v2/?{tenant_id}?/servers/?{server_id}?/action,"tenant_id
+server_id
+server_resize_flavorRef",,202,500/400/401/403/405/413/503/404/409,Resizes the specified server. Specify the resize action in the request body.,,,GET
+,Confirm resized server,POST,/v2/?{tenant_id}?/servers/?{server_id}?/action,"tenant_id
+server_id
+server_confirmResize",,202,500/400/401/403/405/413/503/404/409,Confirms a pending resize action. Specify the confirmResize action in the request body.,,,/v2/?{tenant_id}?/servers
+,Revert resized server,POST,/v2/?{tenant_id}?/servers/?{server_id}?/action,"tenant_id
+server_id
+server_revertResize",,202,500/400/401/403/405/413/503/404/409,Cancels and reverts a pending resize action. Specify the revertResize action in the request body.,,,List servers
+,Create image,POST,/v2/?{tenant_id}?/servers/?{server_id}?/action,"tenant_id
+server_id
+image_name
+createImage
+image_metadata","location
+server_name
+server_metadata",202,500/400/401/403/405/413/503/404/409,Creates an image. Specify the createImage action in the request body.,,,
+Flavors,List flavors,GET,/v2/?{tenant_id}?/flavors,"tenant_id
+flavor_minDisk (Optional)
+flavor_minRam (Optional)
+flavor_limit (Optional)
+flavor_marker (Optional)","X-Compute-Request-ID (Optional)
+flavors
+next (Optional)
+previous (Optional)
+flavor_id
+flavor_links
+flavor_name",200/203,500/400/401/403/405/413/503/404,"Lists IDs, names, and links for available flavors.",,,"Lists IDs, names, and links for all servers."
+,List details for flavors,GET,/v2/?{tenant_id}?/flavors/detail,"tenant_id
+flavor_minDisk (Optional)
+flavor_minRam (Optional)
+flavor_limit (Optional)
+flavor_marker (Optional)","X-Compute-Request-ID (Optional)
+flavors
+next (Optional)
+previous (Optional)
+flavor_id
+flavor_links
+flavor_name",200/203,500/400/401/403/405/413/503/404,Lists all details for available flavors.,,,
+,Get flavor details,GET,/v2/?{tenant_id}?/flavors/?{flavor_id}?,"tenant_id
+server_id","X-Compute-Request-ID (Optional)
+flavor_disk
+flavor_id
+flavor_links
+flavor_name
+flavor_ram
+flavor_vcpus",200/203,500/400/401/403/405/413/503/404,Gets details for a specified flavor.,,,
+Images,List images,GET,/v2/?{tenant_id}?/images,"tenant_id
+changes-since (Optional)
+server_name (Optional)
+image_name (Optional)
+image_status (Optional)
+image_type (Optional)
+","X-Compute-Request-ID (Optional)
+images
+next (Optional)
+previous (Optional)
+image_id
+image_links
+image_name",200/203,500/400/401/403/405/413/503/404,"Lists IDs, names, and links for available images.",,,POST
+,List images details,GET,/v2/?{tenant_id}?/images/detail,"tenant_id
+changes-since (Optional)
+server_name (Optional)
+image_name (Optional)
+image_status (Optional)
+image_type (Optional)
+","X-Compute-Request-ID (Optional)
+images
+next (Optional)
+previous (Optional)
+image_id
+image_links
+image_name
+image_created
+image_metadata
+image_minDisk
+image_minRam
+image_progress
+image_status
+image_updated",200/203,500/400/401/403/405/413/503/404,Lists all details for available images.,,,/v2/?{tenant_id}?/servers
+,Get image details,GET,/v2/?{tenant_id}?/images/?{image_id}?,"tenant_id
+image_id","X-Compute-Request-ID (Optional)
+images
+next (Optional)
+previous (Optional)
+image_id
+image_links
+image_name
+image_created
+image_metadata
+image_minDisk
+image_minRam
+image_progress
+image_status
+image_updated",200/203,500/400/401/403/405/413/503/404,Gets details for a specified image.,,,Create server
+,Delete image,DELETE,/v2/?{tenant_id}?/images/?{image_id}?,"tenant_id
+image_id",,204,500/400/401/403/405/413/503/404,Deletes a specified image.,,,
+Image metadata,Show image metadata,GET,/v2/?{tenant_id}?/images/?{image_id}?/metadata,"tenant_id
+image_id","X-Compute-Request-ID (Optional)
+next (Optional)
+previous (Optional)
+image_metadata",200/203,500/400/401/403/405/413/503/404,Shows metadata for a specified image.,,,Creates a server.
+,Create or replace image metadata,PUT,/v2/?{tenant_id}?/images/?{image_id}?/metadata,"tenant_id
+image_id
+image_metadata","next (Optional)
+previous (Optional)
+image_metadata",200,500/400/401/403/405/413/503/404,Creates or replaces metadata for a specified image.,,,
+,Update image metadata items,POST,/v2/?{tenant_id}?/images/?{image_id}?/metadata,"tenant_id
+image_id
+image_metadata","next (Optional)
+previous (Optional)
+image_metadata",200,500/400/401/403/405/413/503/404,Updates metadata items by key for a specified image.,,,
+,Show image metadata item details,GET,/v2/?{tenant_id}?/images/?{image_id}?/metadata/?{key}?,"tenant_id
+image_id
+image_metadata_key","X-Compute-Request-ID (Optional)
+image_metadata",200/203,500/400/401/403/405/413/503/404,Shows details for a metadata item by key for a specified image.,,,GET
+,Create or update image metadata item,PUT,/v2/?{tenant_id}?/images/?{image_id}?/metadata/?{key}?,"tenant_id
+image_id
+image_metadata_key
+image_metadata","X-Compute-Request-ID (Optional)
+image_metadata",200,500/400/401/403/405/413/503/404,Creates or updates a metadata item by key for a specified image.,,,/v2/?{tenant_id}?/servers/detail
+,Delete image metadata item,DELETE,/v2/?{tenant_id}?/images/?{image_id}?/metadata/?{key}?,"tenant_id
+image_id
+image_metadata_key",,204,500/400/401/403/405/413/503/404,Deletes a metadata item by key for a specified image.,,,List details for servers
+,,,,,,,,,,,
+,,,,,,,,,,,Lists details for all servers.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/?{tenant_id}?/servers/?{server_id}?
+,,,,,,,,,,,Get server details
+,,,,,,,,,,,
+,,,,,,,,,,,Gets details for a specified server.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,PUT
+,,,,,,,,,,,/v2/?{tenant_id}?/servers/?{server_id}?
+,,,,,,,,,,,Update server
+,,,,,,,,,,,
+,,,,,,,,,,,Updates the editable attributes of the specified server.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,DELETE
+,,,,,,,,,,,/v2/?{tenant_id}?/servers/?{server_id}?
+,,,,,,,,,,,Delete server
+,,,,,,,,,,,
+,,,,,,,,,,,Deletes a specified server.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/?{tenant_id}?/servers/?{server_id}?/metadata
+,,,,,,,,,,,Show server metadata
+,,,,,,,,,,,
+,,,,,,,,,,,Shows metadata for a specified server.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,PUT
+,,,,,,,,,,,/v2/?{tenant_id}?/servers/?{server_id}?/metadata
+,,,,,,,,,,,Create or replace server metadata items
+,,,,,,,,,,,
+,,,,,,,,,,,Creates or replaces metadata items for a specified server.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v2/?{tenant_id}?/servers/?{server_id}?/metadata
+,,,,,,,,,,,Update server metadata items
+,,,,,,,,,,,
+,,,,,,,,,,,Updates metadata items by key for a specified server.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/?{tenant_id}?/servers/?{server_id}?/metadata/?{key}?
+,,,,,,,,,,,Show server metadata item details
+,,,,,,,,,,,
+,,,,,,,,,,,Shows details for a metadata item by key for a specified server.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,PUT
+,,,,,,,,,,,/v2/?{tenant_id}?/servers/?{server_id}?/metadata/?{key}?
+,,,,,,,,,,,Create or update server metadata item
+,,,,,,,,,,,
+,,,,,,,,,,,Sets a metadata item by key for a specified server.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,DELETE
+,,,,,,,,,,,/v2/?{tenant_id}?/servers/?{server_id}?/metadata/?{key}?
+,,,,,,,,,,,Delete server metadata item
+,,,,,,,,,,,
+,,,,,,,,,,,Deletes a metadata item by key for a specified server.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/?{tenant_id}?/servers/?{server_id}?/ips
+,,,,,,,,,,,List addresses
+,,,,,,,,,,,
+,,,,,,,,,,,Lists networks and addresses for a specified tenant and server.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/?{tenant_id}?/servers/?{server_id}?/ips/?{network_label}?
+,,,,,,,,,,,List addresses by network
+,,,,,,,,,,,
+,,,,,,,,,,,"Lists addresses for a specified tenant, server, and network."
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v2/?{tenant_id}?/servers/?{server_id}?/action
+,,,,,,,,,,,Change password
+,,,,,,,,,,,
+,,,,,,,,,,,Changes the password for a server. Specify the changePassword action in the request body.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v2/?{tenant_id}?/servers/?{server_id}?/action
+,,,,,,,,,,,Reboot server
+,,,,,,,,,,,
+,,,,,,,,,,,Reboots the specified server. Specify the reboot action in the request body.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v2/?{tenant_id}?/servers/?{server_id}?/action
+,,,,,,,,,,,Rebuild server
+,,,,,,,,,,,
+,,,,,,,,,,,Rebuilds the specified server. Specify the rebuild action in the request body.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v2/?{tenant_id}?/servers/?{server_id}?/action
+,,,,,,,,,,,Resize server
+,,,,,,,,,,,
+,,,,,,,,,,,Resizes the specified server. Specify the resize action in the request body.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v2/?{tenant_id}?/servers/?{server_id}?/action
+,,,,,,,,,,,Confirm resized server
+,,,,,,,,,,,
+,,,,,,,,,,,Confirms a pending resize action. Specify the confirmResize action in the request body.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v2/?{tenant_id}?/servers/?{server_id}?/action
+,,,,,,,,,,,Revert resized server
+,,,,,,,,,,,
+,,,,,,,,,,,Cancels and reverts a pending resize action. Specify the revertResize action in the request body.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v2/?{tenant_id}?/servers/?{server_id}?/action
+,,,,,,,,,,,Create image
+,,,,,,,,,,,
+,,,,,,,,,,,Creates an image. Specify the createImage action in the request body.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/?{tenant_id}?/flavors
+,,,,,,,,,,,List flavors
+,,,,,,,,,,,
+,,,,,,,,,,,"Lists IDs, names, and links for available flavors."
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/?{tenant_id}?/flavors/detail
+,,,,,,,,,,,List details for flavors
+,,,,,,,,,,,
+,,,,,,,,,,,Lists all details for available flavors.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/?{tenant_id}?/flavors/?{flavor_id}?
+,,,,,,,,,,,Get flavor details
+,,,,,,,,,,,
+,,,,,,,,,,,Gets details for a specified flavor.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/?{tenant_id}?/images
+,,,,,,,,,,,List images
+,,,,,,,,,,,
+,,,,,,,,,,,"Lists IDs, names, and links for available images."
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/?{tenant_id}?/images/detail
+,,,,,,,,,,,List images details
+,,,,,,,,,,,
+,,,,,,,,,,,Lists all details for available images.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/?{tenant_id}?/images/?{image_id}?
+,,,,,,,,,,,Get image details
+,,,,,,,,,,,
+,,,,,,,,,,,Gets details for a specified image.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,DELETE
+,,,,,,,,,,,/v2/?{tenant_id}?/images/?{image_id}?
+,,,,,,,,,,,Delete image
+,,,,,,,,,,,
+,,,,,,,,,,,Deletes a specified image.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/?{tenant_id}?/images/?{image_id}?/metadata
+,,,,,,,,,,,Show image metadata
+,,,,,,,,,,,
+,,,,,,,,,,,Shows metadata for a specified image.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,PUT
+,,,,,,,,,,,/v2/?{tenant_id}?/images/?{image_id}?/metadata
+,,,,,,,,,,,Create or replace image metadata
+,,,,,,,,,,,
+,,,,,,,,,,,Creates or replaces metadata for a specified image.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,POST
+,,,,,,,,,,,/v2/?{tenant_id}?/images/?{image_id}?/metadata
+,,,,,,,,,,,Update image metadata items
+,,,,,,,,,,,
+,,,,,,,,,,,Updates metadata items by key for a specified image.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,GET
+,,,,,,,,,,,/v2/?{tenant_id}?/images/?{image_id}?/metadata/?{key}?
+,,,,,,,,,,,Show image metadata item details
+,,,,,,,,,,,
+,,,,,,,,,,,Shows details for a metadata item by key for a specified image.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,PUT
+,,,,,,,,,,,/v2/?{tenant_id}?/images/?{image_id}?/metadata/?{key}?
+,,,,,,,,,,,Create or update image metadata item
+,,,,,,,,,,,
+,,,,,,,,,,,Creates or updates a metadata item by key for a specified image.
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,DELETE
+,,,,,,,,,,,/v2/?{tenant_id}?/images/?{image_id}?/metadata/?{key}?
+,,,,,,,,,,,Delete image metadata item
+,,,,,,,,,,,
+,,,,,,,,,,,Deletes a metadata item by key for a specified image.
