@@ -12,7 +12,8 @@ spt_between_parameters = "/"
 spt_in_parameter = ":"
 
 
-def csv_to_APIs(path, result=[]):
+def csv_to_APIs(path):
+    result = []
     reader = csv.DictReader(open(path))
     component = str(path).split(spt_between_parameters).pop().split(".")[0]
     category_temp = ""
@@ -34,6 +35,6 @@ def csv_to_APIs(path, result=[]):
             result.append(a)
     return result
 
-# r = csv_to_APIs("sample.csv")
+# r = csv_to_APIs("nova.csv")
 # for a in r:
 #     print a

@@ -34,3 +34,9 @@ class TreeNode:
 
     def set_level(self, level):
         self.set_level(level)
+
+    def __str__(self):
+        if self.api is not None and self.api.component != "":
+            return self.api.component + " " + self.api.name
+        else:
+            return "Empty"

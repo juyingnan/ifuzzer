@@ -6,7 +6,7 @@ import api_parser
 
 
 def is_api_in_upper_node(node, api):
-    upperNode = node.parent
+    upperNode = node
     while upperNode is not None:
         if upperNode.api == api:
             return True
@@ -26,7 +26,7 @@ def is_include_all_input(node, api):
     return False
 
 
-def find_path(csv_list, init_info_string_list):
+def build_tree(csv_list, init_info_string_list):
     # find all APIs
     api_list = []
     for csv_file in csv_list:
@@ -63,13 +63,29 @@ def find_path(csv_list, init_info_string_list):
             if node.child.__len__() == 0:
                 node.isLeaf = True
     # output
-    result = root
-    return result
-
-def get_all_leaves(root):
-    leaf_list = []
+    return root
 
 
+def get_all_paths(root, result=[], stack=[]):
+    if root is None:
+        return result
+    stack.append(root)
+    if len(root.child) == 0:
+        # print stack
+        print_tree_path(stack)
+        result.append(stack)
+        stack.pop()
+        return result
+    for child in root.child:
+        get_all_paths(child, result, stack)
 
-result = find_path(["keystone.csv", "glance.csv", "nova.csv"], ["password"])
+
+def print_tree_path(stack=[]):
+    string = ""
+    for node in stack:
+        string += str(node) + " -> "
+    print (string[:-4] if len(string) >4 else string)
+
+tree = build_tree(["keystone.csv", "glance.csv", "nova.csv"], ["password"])
+result = get_all_paths(tree,[],[])
 print result
