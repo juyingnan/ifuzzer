@@ -16,6 +16,7 @@ class api:
         self.method = method
         self.uri = uri
         self.input = self.get_apiIO_list(input, spt_in_parameter)
+        self.non_optional_input = self.get_apiIO_list(input, spt_in_parameter, True)
         self.response = self.get_apiIO_list(response, spt_in_parameter)
         self.normal_response_code = self.get_string_list(normal_response_code, spt_between_parameters)
         self.error_response_code = self.get_string_list(error_response_code, spt_between_parameters)
@@ -26,12 +27,16 @@ class api:
     def get_string_list(self, input_string, separator):
         return str(input_string).split(separator)
 
-    def get_apiIO_list(self, input_string, separator):
+    def get_apiIO_list(self, input_string, separator, isNonOptional=False):
         strList = str(input_string).split(separator)
         result = []
         for string in strList:
             a = api_io.apiIO(string=string)
-        result.append(a)
+        if isNonOptional == False:
+            result.append(a)
+        else:
+            if a.isOptional == False:
+                result.append(a)
         return result
 
     def content_check(self):
