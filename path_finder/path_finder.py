@@ -94,16 +94,20 @@ def print_tree_stack(stack):
         string += str(node) + separator
     print (string[:len(separator)*-1] if len(string) > len(separator) else string)
 
+from time import clock
+start=clock()
 authenticate_api = api.api(category="Token", name="Authenticate", method="POST",
                                uri="/v3/auth/tokens", input="user_id\npassword", response="X-Auth-Token",
                                normal_response_code="201", error_response_code="400/401/403/405/413/503/404",
                                description="Authenticates and generates a token.", component="Keystone")
-max_level = 6
-max_child = 3
+max_level = 10
+max_child = 4
 isRandom = True
 tree = build_tree(["keystone.csv", "glance.csv", "nova.csv"],
-                  ["tenant_id"],
+                  [""],
                   max_level, max_child, authenticate_api,
                   isRandom)
 result = get_all_paths(tree, [], [])
 print result
+finish=clock()
+print finish-start

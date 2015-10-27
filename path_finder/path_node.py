@@ -33,7 +33,7 @@ class TreeNode:
         self.isLeaf = is_leaf
 
     def set_level(self, level):
-        self.set_level(level)
+        self.level = level
 
     def __str__(self):
         if self.api is not None and self.api.component != "":
